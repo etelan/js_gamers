@@ -2,6 +2,7 @@
 // Set 0,0
 var guyHorizontal = 0;
 var guyVertical = 0;
+var hearts = 0;
 
 function anim(e){
 
@@ -15,7 +16,20 @@ function anim(e){
 
 function heartCheck(){
   if (!checkFree(guyHorizontal, guyVertical, getItem('heart'))){
-    playAudio("life_sound")
+    playAudio("life_sound");
+    hearts = getItem('heart');
+    for (i = 0; i < hearts.length; i++) {
+
+      string1 = hearts[i].style.left.slice(0, -2)
+      x = parseInt(string1)
+
+      string2 = hearts[i].style.top.slice(0, -2)
+      y = parseInt(string2)
+
+      if ((x == guyHorizontal) && (y == guyVertical) ){
+        removeElement(hearts[i].id)
+      }
+    }
   }
 }
 
@@ -105,20 +119,20 @@ function getItem(item){
 }
 
 
-var myVar = setInterval(bulletMove, 1000);
+// var myVar = setInterval(bulletMove, 1000);
+//
+// var bulletHorizontal = 0;
+//
+// function bulletMove() {
+//   var bullet=document.getElementById('bullet');
+//   bulletHorizontal += 50;
+//   bullet.style.left = bulletHorizontal + 'px';
+//   removeElement();
+// }
 
-var bulletHorizontal = 0;
-
-function bulletMove() {
-var bullet=document.getElementById('bullet');
-bulletHorizontal += 50;
-bullet.style.left = bulletHorizontal + 'px';
-removeElement();
-}
-
-function removeElement() {
-var bullet=document.getElementById('bullet');
-bullet.remove();
+function removeElement(name) {
+  var element=document.getElementById(name);
+  element.remove();
 }
 
 document.onkeydown = anim
