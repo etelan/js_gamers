@@ -14,23 +14,25 @@
       <div id="bullet"></div>
     </div>
 
-
-
 <script type="text/javascript">
   let guy=document.getElementById('guy');
   var container=document.getElementById('container');
+  let sprite=document.getElementById('guy').style.backgroundImage;
 
   var guyHorizontal = 0;
   var guyVertical = 0;
 
-
+        //document.getElementById('guy').style.backgroundImage = 'url("right.png")';
   function anim(e){
+
     //Right
     if(e.keyCode == 39){
       if(guyHorizontal != 550){
         guyHorizontal +=50;
         guy.style.left = guyHorizontal + 'px';
-      //guy.style.background-imag = picSrc[]
+          if(sprite == "url(../public/images/top.png)"){;
+            sprite.style.backgroundImage = "url(../public/images/right.png)";
+          }
       }
     }
     //Left
@@ -38,6 +40,7 @@
       if(guyHorizontal != 0){
         guyHorizontal -=50;
         guy.style.left = guyHorizontal + 'px';
+        guy.style.backgroundImage = url('left.png');
 
       }
     }
