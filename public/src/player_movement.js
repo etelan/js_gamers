@@ -1,8 +1,9 @@
 
-
+// Set 0,0
 var guyHorizontal = 0;
 var guyVertical = 0;
 
+// Move
 function anim(e){
 
     let guy=document.getElementById('guy');
@@ -41,19 +42,28 @@ function anim(e){
     }
 }
 
-// ULmovement(get.chomp,)
-//
-// function ULmovement(code,properties){
-//   if(code){
-//     if(properties != 0){
-//       properties -= 50;
-//       if(properties == guyVertical){
-//
-//       }
-//
-//     }
-//   }
-// }
+function checkFree(H,V){   
+    boxArray = getBoxes()    
+    var i;
+    var number;
+    for (i = 0; i < boxArray.length; i++) {
+        string = boxArray[i].style.left.slice(0, -2)
+        console.log(string) 
+        number = parseInt(string)
+        console.log(typeof number)
+
+    }
+
+    var i;
+    for (i = 0; i < boxArray.length; i++) {
+        console.log(boxArray[i].style.top)
+    }
+}
+
+function getBoxes(){
+    let boxes=document.getElementsByClassName('box');
+    return boxes
+}
 
 
 var myVar = setInterval(bulletMove, 1000);
