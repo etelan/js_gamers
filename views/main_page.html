@@ -1,8 +1,15 @@
 <!DOCTYPE html>
+
+
+
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title> MOVING GAME</title>
+
+    <script type="text/javascript" src="../public/src/player_movement.js"></script>
+
     <style>
       #container{
         height: 400px;
@@ -37,79 +44,9 @@
       <div id="bullet"></div>
     </div>
 
-<script type="text/javascript">
-  let guy=document.getElementById('guy');
-  var container=document.getElementById('container');
-
-  var guyHorizontal = 0;
-  var guyVertical = 0;
-
-
-  function anim(e){
-    <!-- Right -->
-    if(e.keyCode == 39){
-      if(guyHorizontal != 550){
-        guyHorizontal +=50;
-        guy.style.left = guyHorizontal + 'px';
-      }
-    }
-    <!-- Left -->
-    if(e.keyCode == 37){
-      if(guyHorizontal != 0){
-        guyHorizontal -=50;
-        guy.style.left = guyHorizontal + 'px';
-      }
-    }
-    <!-- Up -->
-    if(e.keyCode == 38){
-      if(guyVertical != 0){
-        guyVertical -=50;
-        guy.style.top = guyVertical + 'px';
-      }
-    }
-    <!-- Down -->
-    if(e.keyCode == 40){
-      if(guyVertical != 350){
-        guyVertical +=50;
-        guy.style.top = guyVertical + 'px';
-      }
-    }
-  }
-
-// ULmovement(get.chomp,)
-//
-// function ULmovement(code,properties){
-//   if(code){
-//     if(properties != 0){
-//       properties -= 50;
-//       if(properties == guyVertical){
-//
-//       }
-//
-//     }
-//   }
-// }
-
-
-var myVar = setInterval(bulletMove, 1000);
-
-var bulletHorizontal = 0;
-
-function bulletMove() {
-  var bullet=document.getElementById('bullet');
-   bulletHorizontal += 50;
-   bullet.style.left = bulletHorizontal + 'px';
-   removeElement();
-}
-
-function removeElement() {
-  var bullet=document.getElementById('bullet');
-  bullet.remove();
-}
-
-  document.onkeydown = anim
-
-</script>
-
   </body>
+
+  <script>
+    document.onkeydown = anim
+  </script>
 </html>
