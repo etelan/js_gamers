@@ -3,74 +3,81 @@
 var guyHorizontal = 0;
 var guyVertical = 0;
 
-// Move
 function anim(e){
 
     let guy=document.getElementById('guy');
     let container=document.getElementById('container');
 
-    console.log("test")
-    console.log(e.keyCode)
+    move(e);
 
-    // Right
-    if(e.keyCode == 39){
-      if (checkFree(guyHorizontal + 50, guyVertical)){
-        if(guyHorizontal != 550){
-        guyHorizontal +=50;
-        guy.style.left = guyHorizontal + 'px';
-        }
-      }
-    }
-    // Left
-    if(e.keyCode == 37){
-      if (checkFree(guyHorizontal - 50, guyVertical)){
-        if(guyHorizontal != 0){
-        guyHorizontal -=50;
-        guy.style.left = guyHorizontal + 'px';
-        }
-      }
-    }
-    // Up
-    if(e.keyCode == 38){
-      if (checkFree(guyHorizontal, guyVertical - 50)){
-        if(guyVertical != 0){
-        guyVertical -=50;
-        guy.style.top = guyVertical + 'px';
-        }
-      }
-    }
-    // Down
-    if(e.keyCode == 40){
-      if (checkFree(guyHorizontal, guyVertical + 50)){
-        if(guyVertical != 350){
-        guyVertical +=50;
-        guy.style.top = guyVertical + 'px';
-        }
-      }
-    }
 }
 
-function checkFree(h,v){
+function movement2(hor, ver) {
+  if (checkFree(guyHorizontal + hor, guyVertical + ver, getItem('box'))){
+
+    // Down
+    if ( (guyVertical != 350)&&(ver > 0) ) {
+        guyVertical +=ver;
+        guy.style.top = guyVertical + 'px';
+    }
+
+    // Up
+    if ( (guyVertical != 0)&&(ver < 0) ) {
+        guyVertical +=ver;
+        guy.style.top = guyVertical + 'px';
+    }
+
+    // Right
+    if ( (guyHorizontal != 550)&&(hor > 0) ) {
+        guyHorizontal +=hor;
+        guy.style.left = guyHorizontal + 'px';
+    }
+
+    // Left
+    if ( (guyHorizontal != 0)&&(hor < 0) ) {
+        guyHorizontal +=hor;
+        guy.style.left = guyHorizontal + 'px';
+    }
+  }
+}
+
+function move(e){
+  // Right
+  if(e.keyCode == 39){
+    movement2(50,0)
+  }
+  // Left
+  if(e.keyCode == 37){
+    movement2(-50,0)
+  }
+  // Up
+  if(e.keyCode == 38){
+    movement2(0,-50)
+  }
+  // Down
+  if(e.keyCode == 40){
+    movement2(0,50)
+  }
+}
+
+function checkFree(h,v,array){
   //the array of box divs are returned.
-    boxArray = getBoxes()
     var i;
     var x;
     var y;
 
-    for (i = 0; i < boxArray.length; i++) {
+    for (i = 0; i < array.length; i++) {
       //cycle through the divs and access their style=left value.
-        string = boxArray[i].style.left.slice(0, -2)
+        string = array[i].style.left.slice(0, -2)
         x = parseInt(string)
 
         //check the left value vs. the player left value. similar to co-ordinates.
         if(h == x){
-            string = boxArray[i].style.top.slice(0, -2)
+            string = array[i].style.top.slice(0, -2)
             y = parseInt(string)
 
             //check the top value vs. the player top value. similar to co-ordinates.
             if(v == y) {
-              console.log(h,v)
-              console.log('BOX! Watch out!')
               return false
             }
         }
@@ -80,9 +87,9 @@ function checkFree(h,v){
 
 
 //This creates an array of the div elements with class = box.
-function getBoxes(){
-    let boxes=document.getElementsByClassName('box');
-    return boxes
+function getItem(item){
+    let items=document.getElementsByClassName(item);
+    return items
 }
 
 
@@ -102,8 +109,9 @@ var bullet=document.getElementById('bullet');
 bullet.remove();
 }
 
-document.onkeydown = anim
+function playAudio(file) {
+  let sound = document.getElementById(file);
+  sound.play();
+}
 
-// var vid = document.getElementById("retro");
-// vid.autoplay = true;
-// vid.load();
+document.onkeydown = anim
