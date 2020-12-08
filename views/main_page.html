@@ -30,7 +30,8 @@
       if(guyHorizontal != 550){
         guyHorizontal +=50;
         guy.style.left = guyHorizontal + 'px';
-      //guy.style.background-imag = picSrc[]
+        document.getElementById("guy").style.backgroundImage="url('../public/images/right.png')";
+
       }
     }
     //Left
@@ -38,7 +39,7 @@
       if(guyHorizontal != 0){
         guyHorizontal -=50;
         guy.style.left = guyHorizontal + 'px';
-
+        document.getElementById("guy").style.backgroundImage="url('../public/images/left.png')";
       }
     }
     // Up
@@ -46,6 +47,7 @@
       if(guyVertical != 0){
         guyVertical -=50;
         guy.style.top = guyVertical + 'px';
+        document.getElementById("guy").style.backgroundImage="url('../public/images/top.png')";
       }
     }
     // Down
@@ -53,6 +55,7 @@
       if(guyVertical != 350){
         guyVertical +=50;
         guy.style.top = guyVertical + 'px';
+        document.getElementById("guy").style.backgroundImage="url('../public/images/down.png')";
       }
     }
   }
