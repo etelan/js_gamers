@@ -9,7 +9,19 @@ function anim(e){
     let container=document.getElementById('container');
 
     move(e);
+    heartCheck();
 
+}
+
+function heartCheck(){
+  if (!checkFree(guyHorizontal, guyVertical, getItem('heart'))){
+    playAudio("life_sound")
+  }
+}
+
+function playAudio(file) {
+  let sound = document.getElementById(file);
+  sound.play();
 }
 
 function movement2(hor, ver) {
@@ -107,11 +119,6 @@ removeElement();
 function removeElement() {
 var bullet=document.getElementById('bullet');
 bullet.remove();
-}
-
-function playAudio(file) {
-  let sound = document.getElementById(file);
-  sound.play();
 }
 
 document.onkeydown = anim
