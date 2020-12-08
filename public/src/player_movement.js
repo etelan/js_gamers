@@ -12,54 +12,74 @@ function anim(e){
     console.log("test")
     console.log(e.keyCode)
 
-    // Right 
+    // Right
     if(e.keyCode == 39){
+      if (checkFree(guyHorizontal + 50, guyVertical)){
         if(guyHorizontal != 550){
         guyHorizontal +=50;
         guy.style.left = guyHorizontal + 'px';
         }
+      }
     }
     // Left
     if(e.keyCode == 37){
+      if (checkFree(guyHorizontal - 50, guyVertical)){
         if(guyHorizontal != 0){
         guyHorizontal -=50;
         guy.style.left = guyHorizontal + 'px';
         }
+      }
     }
     // Up
     if(e.keyCode == 38){
+      if (checkFree(guyHorizontal, guyVertical - 50)){
         if(guyVertical != 0){
         guyVertical -=50;
         guy.style.top = guyVertical + 'px';
         }
+      }
     }
     // Down
     if(e.keyCode == 40){
+      if (checkFree(guyHorizontal, guyVertical + 50)){
         if(guyVertical != 350){
         guyVertical +=50;
         guy.style.top = guyVertical + 'px';
         }
+      }
     }
 }
 
-function checkFree(H,V){   
-    boxArray = getBoxes()    
+function checkFree(h,v){
+  //the array of box divs are returned.
+    boxArray = getBoxes()
     var i;
-    var number;
+    var x;
+    var y;
+
     for (i = 0; i < boxArray.length; i++) {
+      //cycle through the divs and access their style=left value.
         string = boxArray[i].style.left.slice(0, -2)
-        console.log(string) 
-        number = parseInt(string)
-        console.log(typeof number)
+        x = parseInt(string)
 
+        //check the left value vs. the player left value. similar to co-ordinates.
+        if(h == x){
+            string = boxArray[i].style.top.slice(0, -2)
+            y = parseInt(string)
+
+            //check the top value vs. the player top value. similar to co-ordinates.
+            if(v == y) {
+              console.log(h,v)
+              console.log('BOX! Watch out!')
+              return false
+            }
+        }
     }
+    return true
+  }
 
-    var i;
-    for (i = 0; i < boxArray.length; i++) {
-        console.log(boxArray[i].style.top)
-    }
-}
 
+//This creates an array of the div elements with class = box.
 function getBoxes(){
     let boxes=document.getElementsByClassName('box');
     return boxes
@@ -83,3 +103,7 @@ bullet.remove();
 }
 
 document.onkeydown = anim
+
+// var vid = document.getElementById("retro");
+// vid.autoplay = true;
+// vid.load();
