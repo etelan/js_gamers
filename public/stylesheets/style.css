@@ -4,13 +4,14 @@
       width: 600px;
       outline: 1px solid black;
       position: relative;
+      background-color: turquoise;
     }
     #guy{
       position: absolute;
       height: 50px;
       width: 50px;
       outline: 1px solid block;
-      background-image: url('../images/top.png');
+      background-image: url('../images/trump-down.png');
       background-size: contain;
       background-repeat: no-repeat;
       left: 0px;
