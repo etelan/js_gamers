@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+
+
+
 <html lang="en" dir="ltr">
   <head>
 
@@ -6,93 +10,35 @@
     <meta charset="utf-8">
     <title> MOVING GAME</title>
 
+    <script type="text/javascript" src="../public/src/player_movement.js"></script>
+
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+
   </head>
   <body>
-
     <div id="container">
+      <audio id="life_sound">
+        <source src="https://opengameart.org/sites/default/files/life_pickup_0.mp3" type="audio/mp3">
+      </audio>
+      <audio id="backing_track">
+        <source src="https://opengameart.org/sites/default/files/Irrational%20Machines%20-%20RPG%20Title%20Screen%20Music%20Pack%20-%2001%20Title%20Screen.wav" type="audio/wav">
+      </audio>
+      <div id="heart1" class="heart" style="left:200px; top:200px"></div>
+      <div id="heart2" class="heart" style="left:400px; top:300px"></div>
+      <div id="heart3" class="heart" style="left:500px; top:100px"></div>
       <div id="guy"></div>
       <div id="bullet"></div>
+      <div id="box1" class="box" style="left:50px; top:50px"></div>
+      <div id="box2" class="box" style="left:100px; top:0px"></div>
+      <div id="box3" class="box" style="left:150px; top:100px"></div>
+
+      <!-- <div id="box3" class="box" style="left:150px; top:100px"></div>
+      <div id="box3" class="box" style="left:150px; top:100px"></div> -->
     </div>
 
-<script type="text/javascript">
-  let guy=document.getElementById('guy');
-  var container=document.getElementById('container');
-  let sprite=document.getElementById('guy').style.backgroundImage;
-
-  var guyHorizontal = 0;
-  var guyVertical = 0;
-
-        //document.getElementById('guy').style.backgroundImage = 'url("right.png")';
-  function anim(e){
-
-    //Right
-    if(e.keyCode == 39){
-      if(guyHorizontal != 550){
-        guyHorizontal +=50;
-        guy.style.left = guyHorizontal + 'px';
-        document.getElementById("guy").style.backgroundImage="url('../public/images/trump-right.png')";
-      }
-    }
-    //Left
-    if(e.keyCode == 37){
-      if(guyHorizontal != 0){
-        guyHorizontal -=50;
-        guy.style.left = guyHorizontal + 'px';
-        document.getElementById("guy").style.backgroundImage="url('../public/images/trump-left.png')";
-      }
-    }
-    // Up
-    if(e.keyCode == 38){
-      if(guyVertical != 0){
-        guyVertical -=50;
-        guy.style.top = guyVertical + 'px';
-        document.getElementById("guy").style.backgroundImage="url('../public/images/trump-up.png')";
-      }
-    }
-    // Down
-    if(e.keyCode == 40){
-      if(guyVertical != 350){
-        guyVertical +=50;
-        guy.style.top = guyVertical + 'px';
-        document.getElementById("guy").style.backgroundImage="url('../public/images/trump-down.png')";
-      }
-    }
-  }
-
-// ULmovement(get.chomp,)
-//
-// function ULmovement(code,properties){
-//   if(code){
-//     if(properties != 0){
-//       properties -= 50;
-//       if(properties == guyVertical){
-//
-//       }
-//
-//     }
-//   }
-// }
-
-
-var myVar = setInterval(bulletMove, 1000);
-
-var bulletHorizontal = 0;
-
-function bulletMove() {
-  var bullet=document.getElementById('bullet');
-   bulletHorizontal += 50;
-   bullet.style.left = bulletHorizontal + 'px';
-   removeElement();
-}
-
-function removeElement() {
-  var bullet=document.getElementById('bullet');
-  bullet.remove();
-}
-
-  document.onkeydown = anim
-
-</script>
-
   </body>
+
+  <script>
+    document.onkeydown = anim
+  </script>
 </html>
