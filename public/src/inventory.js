@@ -1,15 +1,28 @@
 class Inventory {
     constructor() {
-      this.inventory = [];
+      this.heartInventory = [];
     }
 
     addItem(element) {
-        this.inventory.push(element);
-        return this.inventory;
+        
+        if (element == "heart") {
+
+            this.heartInventory.push(element);
+
+            if (this.heartInventory.length == 1) {
+                document.getElementById("heartDisplay").innerHTML = String(this.heartInventory.length) + " heart";
+            }
+
+            if (this.heartInventory.length > 1) {
+                document.getElementById("heartDisplay").innerHTML = String(this.heartInventory.length) + " hearts";
+            }
+
+            return this.heartInventory;
+        }
     }
 
     returnInv() {
-        return this.inventory;
+        return this.heartInventory;
     }
 
 }
