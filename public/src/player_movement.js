@@ -4,6 +4,8 @@ var guyHorizontal = 0;
 var guyVertical = 0;
 var hearts = 0;
 
+
+
 function anim(e){
 
     let guy=document.getElementById('guy');
@@ -11,7 +13,7 @@ function anim(e){
 
     move(e);
     heartCheck();
-
+    playAudio("backing_track");
 }
 
 function heartCheck(){
