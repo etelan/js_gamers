@@ -4,6 +4,9 @@ var StartController = {
   },
   Play: function(req, res) {
     res.render('start/play'),  {title: 'Moving game'};
+  },
+  Leaderboard: function(req, res) {
+    res.render('start/leaderboard'), {title: 'Moving game'};
   }
 
 };
