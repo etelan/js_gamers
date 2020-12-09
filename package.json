@@ -1,9 +1,10 @@
 {
   "name": "js_gamers",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "a rooting tooting good time",
+  "main": "app.js",
   "scripts": {
+    "start": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,9 +18,15 @@
   },
   "homepage": "https://github.com/etelan/js_gamers#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "cookie-parser": "~1.4.4",
+    "hbs": "^4.1.1",
+    "nodemon": "^1.19.4"
   },
   "devDependencies": {
     "jasmine": "^3.6.3"
+  },
+  "nodemonConfig": {
+    "ext": "js,hbs"
   }
 }

@@ -14,19 +14,19 @@
   height: 50px;
   width: 50px;
   outline: 1px solid block;
-  background-image: url("https://www.pngfind.com/pngs/m/436-4369822_50-x-50-pixel-art-hd-png-download.png") ;
+  background-image: url("..images/trump-down.png") ;
   background-size: contain;
   background-repeat: no-repeat;
   left: 0px;
 }
-#bullet{
+/* #bullet{
   position: absolute;
   height: 50px;
   width: 50px;
   outline: 1px solid block;
   background-color: blue;
   left: 0px;
-}
+} */
 
 .box{
   position: absolute;
