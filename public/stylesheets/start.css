@@ -1,0 +1,16 @@
+#startscreen{
+  height: 400px;
+  width: 600px;
+  outline: 1px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: green;
+}
+
+button {
+position: absolute;
+top: 80%;
+left: 45%;
+}
