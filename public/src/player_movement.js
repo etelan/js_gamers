@@ -72,22 +72,22 @@ function movement2(hor, ver) {
 function move(e){
   // Right
   if(e.keyCode == 39){
-    document.getElementById("guy").style.backgroundImage="url('../public/images/trump-right.png')";
+    document.getElementById("guy").style.backgroundImage="url('../images/trump-right.png')";
     movement2(50,0)
   }
   // Left
   if(e.keyCode == 37){
-    document.getElementById("guy").style.backgroundImage="url('../public/images/trump-left.png')";
+    document.getElementById("guy").style.backgroundImage="url('../images/trump-left.png')";
     movement2(-50,0)
   }
   // Up
   if(e.keyCode == 38){
-    document.getElementById("guy").style.backgroundImage="url('../public/images/trump-up.png')";
+    document.getElementById("guy").style.backgroundImage="url('../images/trump-up.png')";
     movement2(0,-50)
   }
   // Down
   if(e.keyCode == 40){
-    document.getElementById("guy").style.backgroundImage="url('../public/images/trump-down.png')";
+    document.getElementById("guy").style.backgroundImage="url('../images/trump-down.png')";
     movement2(0,50)
   }
 }
