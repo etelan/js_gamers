@@ -13,7 +13,8 @@ function anim(e){
 
     move(e);
     heartCheck();
-    playAudio("backing_track");
+    trumpNoise(e);
+    // playAudio("backing_track");
 }
 
 function heartCheck(){
@@ -92,6 +93,12 @@ function move(e){
   }
 }
 
+function trumpNoise(e) {
+  if(e.keyCode == 32){
+    playAudio("fake_news")
+  }
+}
+
 function checkFree(h,v,array){
   //the array of box divs are returned.
     var i;
@@ -141,4 +148,4 @@ function removeElement(name) {
   element.remove();
 }
 
-document.onkeydown = anim
+// document.onkeydown = anim
