@@ -1,3 +1,7 @@
+body {
+  background-color: black;
+}
+
 #leaderboard{
   height: 400px;
   width: 600px;
@@ -6,9 +10,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: yellow;
+  background-image: url('../images/leaderboardbg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* background-color: yellow; */
 }
 
-.backbtn {
-  font-size: 24px;
+
+#bbtn {
+  width: 400px;
+  outline: none;
+  background-color: transparent;
+  border: none;
 }

@@ -1,3 +1,7 @@
+body {
+  background-color: black;
+}
+
 #container{
   height: 400px;
   width: 600px;
@@ -54,6 +58,9 @@
   top: 200px;
 }
 
-.backbtn {
-  font-size: 24px;
+#bbtn {
+  width: 400px;
+  outline: none;
+  background-color: transparent;
+  border: none;
 }
