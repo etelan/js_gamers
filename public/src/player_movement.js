@@ -17,22 +17,45 @@ function anim(e){
     // playAudio("backing_track");
 }
 
-function heartCheck(){
-  if (!checkFree(guyHorizontal, guyVertical, getItem('heart'))){
-    playAudio("life_sound");
-    hearts = getItem('heart');
-    for (i = 0; i < hearts.length; i++) {
+function heartCheck() {
 
-      string1 = hearts[i].style.left.slice(0, -2)
-      x = parseInt(string1)
+  // Check for heart
+  var hearts = itemCheck("heart", "life_sound");
 
-      string2 = hearts[i].style.top.slice(0, -2)
-      y = parseInt(string2)
+  // If we meet a heart, delete it and then add heart to inventory.
+  if (hearts !== undefined) {
+    deleteItem(hearts);
+    playerInventory.addItem("heart")
+    console.log(playerInventory.returnInv())
+  } 
+}
 
-      if ((x == guyHorizontal) && (y == guyVertical) ){
-        removeElement(hearts[i].id)
-      }
+function deleteItem(items) {
+  console.log(items)
+  // Find specific heart and delete it
+  for (i = 0; i < items.length; i++) {
+
+    string1 = items[i].style.left.slice(0, -2)
+    x = parseInt(string1)
+
+    string2 = items[i].style.top.slice(0, -2)
+    y = parseInt(string2)
+
+    if ((x == guyHorizontal) && (y == guyVertical) ){
+      removeElement(items[i].id)
     }
+  }
+}
+
+function itemCheck(item, sound){
+  if (!checkFree(guyHorizontal, guyVertical, getItem(item))){
+    // Play The Sound
+    playAudio(sound);
+
+    // Get item
+    items = getItem(item);
+
+    return items
   }
 }
 

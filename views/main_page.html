@@ -6,7 +6,8 @@
 <html lang="en" dir="ltr">
   <head>
 
-     <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
     <meta charset="utf-8">
     <title> MOVING GAME</title>
 
@@ -37,12 +38,21 @@
       <div id="box3" class="box" style="left:150px; top:100px"></div> -->
     </div>
 
+    <div>
+      <h1 id="heartDisplay">3 hearts</h1>
+    </div>
+
   </body>
 
 
   <script type="text/javascript" src="../public/src/player_movement.js"></script>
   <script type="text/javascript" src="../public/src/enemies.js"></script>
+  <script type="text/javascript" src="../public/src/inventory.js"></script>
   <script>
+
+    // Inventory
+    var playerInventory = new Inventory();
     document.onkeydown = anim
+
   </script>
 </html>
