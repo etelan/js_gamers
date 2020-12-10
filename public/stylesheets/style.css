@@ -50,3 +50,12 @@
   left: 300px;
   top: 200px;
 }
+
+.enemy{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
