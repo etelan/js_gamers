@@ -1,6 +1,6 @@
 class Inventory {
     constructor() {
-      this.heartInventory = [];
+      this.heartInventory = ["heart","heart","heart"];
     }
 
     addItem(element) {
