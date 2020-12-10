@@ -14,6 +14,7 @@ function anim(e){
     move(e);
     heartCheck();
     keyCheck();
+    shoot(e);
 
     trumpNoise(e);
 
@@ -46,7 +47,7 @@ function searchItem(item) {
 
     }
 
-  } 
+  }
   return false
 }
 
@@ -57,21 +58,21 @@ function heartCheck() {
 
   // If we meet a heart, delete it and then add heart to inventory.
   if (hearts !== undefined) {
-    deleteItem(hearts);
+    deleteHeart(hearts);
     playerInventory.addItem("heart")
-  } 
+  }
 }
 
 function keyCheck() {
 
-  // Check for heart
+  // Check for key
   var keys = itemCheck("key", "life_sound");
 
   // If we meet a heart, delete it and then add heart to inventory.
   if (keys !== undefined) {
     deleteItem(keys);
     playerInventory.addItem("key")
-  } 
+  }
 }
 
 function deleteItem(items) {
@@ -84,10 +85,27 @@ function deleteItem(items) {
 
     string2 = items[i].style.top.slice(0, -2)
     y = parseInt(string2)
-
-    removeElement(items[i].id)
+    // if ((playerHorizontal == x) && (playerVertical == y)){
+      removeElement(items[i].id)
+    // }
     console.log("here2")
-    
+  }
+}
+
+function deleteHeart(items) {
+  console.log(items)
+  // Find specific heart and delete it
+  for (i = 0; i < items.length; i++) {
+
+    string1 = items[i].style.left.slice(0, -2)
+    x = parseInt(string1)
+
+    string2 = items[i].style.top.slice(0, -2)
+    y = parseInt(string2)
+    if ((guyHorizontal == x) && (guyVertical == y)){
+      removeElement(items[i].id)
+    }
+    console.log("here2")
   }
 }
 
@@ -158,20 +176,6 @@ function move(e){
     document.getElementById("guy").style.backgroundImage="url('../public/images/trump-down.png')";
     movement2(0,50)
   }
-
-  if(e.keyCode == 32){
-    let bullet = new Bullet;
-    bullet.createBullet(guyHorizontal, guyVertical);
-    document.getElementById(`${bullet.id}`).style.backgroundImage="url('../public/images/new_bullet copy.png')";
-    var continuous = setInterval(function(){
-      var check = document.getElementById(`${bullet.id}`);
-      if (check == null) {
-        clearInterval(continuous)
-      }
-      bullet.bulletMove(guyHorizontal, guyVertical);
-      checkBullets();
-    }, 50);
-  }
 }
 
 function trumpNoise(e) {
@@ -212,6 +216,34 @@ function getItem(item){
     return items
 }
 
+function shoot(e){
+  if(e.keyCode == 87){
+    bulletSetUp("up")
+  }
+  if(e.keyCode == 65){
+    bulletSetUp("left")
+  }
+  if(e.keyCode == 83){
+    bulletSetUp("down")
+  }
+  if(e.keyCode == 68){
+    bulletSetUp("right")
+  }
+}
+
+function bulletSetUp(direction){
+  let bullet = new Bullet(direction);
+  bullet.createBullet(guyHorizontal, guyVertical);
+  document.getElementById(`${bullet.id}`).style.backgroundImage="url('../public/images/new_bullet copy.png')";
+  var continuous = setInterval(function(){
+    var check = document.getElementById(`${bullet.id}`);
+    if (check == null) {
+      clearInterval(continuous)
+    }
+    bullet.bulletMove(guyHorizontal, guyVertical);
+    checkBullets();
+  }, 50);
+}
 
 // var myVar = setInterval(bulletMove, 1000);
 //
