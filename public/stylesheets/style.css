@@ -16,7 +16,7 @@
   background-repeat: no-repeat;
   left: 0px;
 }
-#bullet{
+.bullet{
   position: absolute;
   height: 50px;
   width: 50px;
