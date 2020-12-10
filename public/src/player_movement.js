@@ -27,7 +27,7 @@ function heartCheck() {
     deleteItem(hearts);
     playerInventory.addItem("heart")
     console.log(playerInventory.returnInv())
-  } 
+  }
 }
 
 function deleteItem(items) {
@@ -113,6 +113,20 @@ function move(e){
   if(e.keyCode == 40){
     document.getElementById("guy").style.backgroundImage="url('../public/images/trump-down.png')";
     movement2(0,50)
+  }
+
+  if(e.keyCode == 32){
+    let bullet = new Bullet;
+    bullet.createBullet(guyHorizontal, guyVertical);
+    document.getElementById(`${bullet.id}`).style.backgroundImage="url('../public/images/new_bullet copy.png')";
+    var continuous = setInterval(function(){
+      var check = document.getElementById(`${bullet.id}`);
+      if (check == null) {
+        clearInterval(continuous)
+      }
+      bullet.bulletMove(guyHorizontal, guyVertical);
+      checkBullets();
+    }, 50);
   }
 }
 
