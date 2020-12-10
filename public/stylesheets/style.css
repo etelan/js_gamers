@@ -51,6 +51,32 @@
   top: 200px;
 }
 
+.key{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid block;
+  /* background-color: black; */
+  background-image: url('../images/key.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 300px;
+  top: 200px;
+}
+
+.door{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid block;
+  /* background-color: black; */
+  background-image: url('../images/door.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 300px;
+  top: 200px;
+}
+
 .enemy{
   position: absolute;
   height: 50px;
