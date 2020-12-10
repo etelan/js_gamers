@@ -13,8 +13,41 @@ function anim(e){
 
     move(e);
     heartCheck();
+    keyCheck();
+
     trumpNoise(e);
+
+    useItem(e, "door")
     // playAudio("backing_track");
+}
+
+function useItem(e, item){
+  if (e.keyCode == 69) {
+    if (searchItem(item)) {
+      var array = getItem(item)
+      deleteItem(array)
+      playerInventory.keyInventory.pop();
+      playerInventory.updateDisplay();
+      console.log("here")
+    }
+  }
+}
+
+function searchItem(item) {
+  for (x = -50; x < 51; x = x + 50) {
+
+    for (y = -50; y < 51; y = y + 50) {
+      var itemNear = !(checkFree(guyHorizontal + x, guyVertical + y, getItem(item)))
+
+      if (itemNear) {
+        console.log(item + " Detected.")
+        return true
+      }
+
+    }
+
+  } 
+  return false
 }
 
 function heartCheck() {
@@ -26,8 +59,19 @@ function heartCheck() {
   if (hearts !== undefined) {
     deleteItem(hearts);
     playerInventory.addItem("heart")
-    console.log(playerInventory.returnInv())
-  }
+  } 
+}
+
+function keyCheck() {
+
+  // Check for heart
+  var keys = itemCheck("key", "life_sound");
+
+  // If we meet a heart, delete it and then add heart to inventory.
+  if (keys !== undefined) {
+    deleteItem(keys);
+    playerInventory.addItem("key")
+  } 
 }
 
 function deleteItem(items) {
@@ -41,9 +85,9 @@ function deleteItem(items) {
     string2 = items[i].style.top.slice(0, -2)
     y = parseInt(string2)
 
-    if ((x == guyHorizontal) && (y == guyVertical) ){
-      removeElement(items[i].id)
-    }
+    removeElement(items[i].id)
+    console.log("here2")
+    
   }
 }
 
@@ -65,7 +109,7 @@ function playAudio(file) {
 }
 
 function movement2(hor, ver) {
-  if (checkFree(guyHorizontal + hor, guyVertical + ver, getItem('box'))){
+  if ( (checkFree(guyHorizontal + hor, guyVertical + ver, getItem('box'))) && (checkFree(guyHorizontal + hor, guyVertical + ver, getItem('door'))) ){
 
     // Down
     if ( (guyVertical != 350)&&(ver > 0) ) {
