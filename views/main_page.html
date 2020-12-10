@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+
     <meta charset="utf-8">
     <title> MOVING GAME</title>
     <style>
@@ -20,7 +21,7 @@
         background-repeat: no-repeat;
         left: 0px;
       }
-      #bullet{
+      .bullet{
         position: absolute;
         height: 50px;
         width: 50px;
@@ -28,21 +29,29 @@
         background-color: blue;
         left: 0px;
       }
+      .test {
+        color: green;
+      }
     </style>
   </head>
   <body>
 
     <div id="container">
       <div id="guy"></div>
-      <div id="bullet"></div>
     </div>
 
+  </body>
+  <script src="../public/javascripts/shooting.js"></script>
 <script type="text/javascript">
   let guy=document.getElementById('guy');
   var container=document.getElementById('container');
 
   var guyHorizontal = 0;
   var guyVertical = 0;
+
+  // let myVar = setInterval(bulletMove, 1000);
+  //
+  // let bulletHorizontal = 0;
 
 
   function anim(e){
@@ -74,42 +83,37 @@
         guy.style.top = guyVertical + 'px';
       }
     }
+
+    if(e.keyCode == 32){
+      let bullet = new Bullet;
+      bullet.createBullet(guyHorizontal, guyVertical);
+      document.getElementById(`${bullet.id}`).style.backgroundImage="url('../public/images/new_bullet copy.png')";
+      var continuous = setInterval(function(){
+        var check = document.getElementById(`${bullet.id}`);
+        if (check == null) {
+          clearInterval(continuous)
+        }
+        bullet.bulletMove(guyHorizontal, guyVertical);
+        checkBullets();
+      }, 50);
+    }
   }
+  // function bulletMove() {
+  //   bullet.className = 'bullet';
+  //   bulletHorizontal += 50;
+  //   bullet.style.left = bulletHorizontal + 'px';
+  //   removeElement();
+  // }
+  //
+  // function removeElement() {
+  //   bullet.className = 'bullet';
+  //   bullet.remove();
+  // }
 
-// ULmovement(get.chomp,)
-//
-// function ULmovement(code,properties){
-//   if(code){
-//     if(properties != 0){
-//       properties -= 50;
-//       if(properties == guyVertical){
-//
-//       }
-//
-//     }
-//   }
-// }
-
-
-var myVar = setInterval(bulletMove, 1000);
-
-var bulletHorizontal = 0;
-
-function bulletMove() {
-  var bullet=document.getElementById('bullet');
-   bulletHorizontal += 50;
-   bullet.style.left = bulletHorizontal + 'px';
-   removeElement();
-}
-
-function removeElement() {
-  var bullet=document.getElementById('bullet');
-  bullet.remove();
-}
 
   document.onkeydown = anim
 
 </script>
 
-  </body>
+
 </html>
