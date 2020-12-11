@@ -15,6 +15,11 @@
   background-size: contain;
   background-repeat: no-repeat;
   left: 0px;
+
+  /* Text  */
+  color: red;
+  font-size: 25px;
+
 }
 .bullet{
   position: absolute;

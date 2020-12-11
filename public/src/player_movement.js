@@ -11,15 +11,36 @@ function anim(e){
     let guy=document.getElementById('guy');
     let container=document.getElementById('container');
 
+    
+
     move(e);
     heartCheck();
     keyCheck();
     shoot(e);
 
+    // Shows E if a useable item is nearby
+    _itemUsable();
+
     trumpNoise(e);
 
     useItem(e, "door")
     // playAudio("backing_track");
+}
+
+function _itemUsable() {
+  // If there is a door, show E.
+  if (searchItem("door")) {
+    document.getElementById("guy").innerHTML = "<b>e</b>";
+
+    // Black if useable.
+    if (playerInventory.keyInventory.length > 0) {
+      document.getElementById("guy").style.color = "black"
+    } 
+    
+
+  } else {
+    document.getElementById("guy").innerHTML = "";
+  }
 }
 
 function useItem(e, item){

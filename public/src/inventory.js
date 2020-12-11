@@ -2,6 +2,7 @@ class Inventory {
     constructor() {
       this.heartInventory = ["heart","heart","heart"];
       this.keyInventory = [];
+      this.weaponInventory = [];
     }
 
     addItem(element) {
