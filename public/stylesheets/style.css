@@ -1,17 +1,24 @@
+body {
+  background-color: pink;
+}
+
 #container{
   height: 400px;
   width: 600px;
   outline: 1px solid black;
   background-image: url("https://opengameart.org/sites/default/files/styles/medium/public/grass_17.png") ;
   background-size: contain;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 #guy{
   position: absolute;
   height: 50px;
   width: 50px;
   outline: 1px solid block;
-  background-image: url("https://www.pngfind.com/pngs/m/436-4369822_50-x-50-pixel-art-hd-png-download.png") ;
+  background-image: url("../images/trump-down.png") ;
   background-size: contain;
   background-repeat: no-repeat;
   left: 0px;
@@ -30,8 +37,7 @@
   height: 50px;
   width: 50px;
   outline: 1px solid block;
-  /* background-color: black; */
-  background-image: url("https://opengameart.org/sites/default/files/styles/medium/public/a_0.png");
+  background-image: url("../images/stonewall2.png");
   background-size: contain;
   background-repeat: no-repeat;
   left: 300px;
@@ -44,7 +50,7 @@
   width: 50px;
   outline: 1px solid block;
   /* background-color: black; */
-  background-image: url("https://opengameart.org/sites/default/files/styles/medium/public/heart_7.png");
+  background-image: url("../images/heart.gif");
   background-size: contain;
   background-repeat: no-repeat;
   left: 300px;
@@ -85,3 +91,19 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+#heartDisplay {
+  position: relative;
+  top: 500px;
+}
+
+#keyDisplay {
+  position: relative;
+  top: 520px;
+}
+
+#bbtn {
+width: 400px;
+outline: none;
+background-color: transparent;
+border: none;
