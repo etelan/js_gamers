@@ -93,6 +93,19 @@ body {
   background-repeat: no-repeat;
 }
 
+.exit{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid block;
+  /* background-color: black; */
+  background-image: url('../images/door.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 550px;
+  top: 0px;
+}
+
 #heartDisplay {
   position: relative;
   top: 500px;
