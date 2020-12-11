@@ -19,6 +19,7 @@ function anim(e){
     trumpNoise(e);
 
     useItem(e, "door")
+    useExit(e, "exit")
     // playAudio("backing_track");
 }
 
@@ -30,7 +31,7 @@ function useItem(e, item){
         deleteItem(array)
         playerInventory.keyInventory.pop();
         playerInventory.updateDisplay();
-        console.log("here")
+        console.log("yoo")
       }
     }
   }
@@ -51,6 +52,14 @@ function searchItem(item) {
 
   }
   return false
+}
+
+function useExit(e, item){
+  if (e.keyCode == 69) {
+    if (searchItem(item)) {
+      window.location.replace("/");
+    }
+  }
 }
 
 function heartCheck() {
@@ -107,7 +116,7 @@ function deleteHeart(items) {
     if ((guyHorizontal == x) && (guyVertical == y)){
       removeElement(items[i].id)
     }
-    console.log("here2")
+    console.log("yep")
   }
 }
 
@@ -129,7 +138,8 @@ function playAudio(file) {
 }
 
 function movement2(hor, ver) {
-  if ( (checkFree(guyHorizontal + hor, guyVertical + ver, getItem('box'))) && (checkFree(guyHorizontal + hor, guyVertical + ver, getItem('door'))) ){
+  if ((checkFree(guyHorizontal + hor, guyVertical + ver, getItem('box'))) && (checkFree(guyHorizontal + hor, guyVertical + ver, getItem('door')))
+  && (checkFree(guyHorizontal + hor, guyVertical + ver, getItem('exit'))) ){
 
     // Down
     if ( (guyVertical != 350)&&(ver > 0) ) {
