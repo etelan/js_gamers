@@ -2,7 +2,6 @@ class Inventory {
     constructor() {
       this.heartInventory = ["heart","heart","heart"];
       this.keyInventory = [];
-      this.weaponInventory = [];
     }
 
     addItem(element) {
@@ -64,7 +63,7 @@ class Inventory {
 
     checkLife(){
       if (this.heartInventory.length == 0){
-        playAudio("death");
+        document.getElementById("dead").submit();
       }
     }
 

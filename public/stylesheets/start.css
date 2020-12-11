@@ -15,6 +15,19 @@ body {
   /* background-color: green; */
 }
 
+#gameover_screen{
+  height: 400px;
+  width: 600px;
+  outline: 1px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('../images/game_over.png');
+  background-size: contain;
+  /* background-color: green; */
+}
+
 #sbtn {
   position: absolute;
   top: 80%;

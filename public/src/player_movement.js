@@ -15,33 +15,13 @@ function anim(e){
     heartCheck();
     keyCheck();
     shoot(e);
-    // causeDamage();
+    causeDamage();
     playerInventory.checkLife();
-
-    _itemUsable()
 
     trumpNoise(e);
 
     useItem(e, "door")
     // playAudio("backing_track");
-}
-
-function _itemUsable() {
-  // If there is a door, show E.
-  if (searchItem("door")) {
-    document.getElementById("canUse").style.color = "red"
-    document.getElementById("canUse").innerHTML = "<b>e</b>";
-
-    // Black if useable.
-    if (playerInventory.keyInventory.length > 0) {
-      document.getElementById("canUse").style.color = "black"
-      
-    } 
-    
-
-  } else {
-    document.getElementById("canUse").innerHTML = "";
-  }
 }
 
 function useItem(e, item){
@@ -182,22 +162,22 @@ function movement2(hor, ver) {
 function move(e){
   // Right
   if(e.keyCode == 39){
-    document.getElementById("guy_spritesheet").className = "face-right";
+    document.getElementById("guy").style.backgroundImage="url('../images/trump-right.png')";
     movement2(50,0)
   }
   // Left
   if(e.keyCode == 37){
-    document.getElementById("guy_spritesheet").className = "face-left";
+    document.getElementById("guy").style.backgroundImage="url('../images/trump-left.png')";
     movement2(-50,0)
   }
   // Up
   if(e.keyCode == 38){
-    document.getElementById("guy_spritesheet").className = "face-up";
+    document.getElementById("guy").style.backgroundImage="url('../images/trump-up.png')";
     movement2(0,-50)
   }
   // Down
   if(e.keyCode == 40){
-    document.getElementById("guy_spritesheet").className = "down";
+    document.getElementById("guy").style.backgroundImage="url('../images/trump-down.png')";
     movement2(0,50)
   }
 }
@@ -238,6 +218,11 @@ function checkFree(h,v,array){
 function getItem(item){
     let items=document.getElementsByClassName(item);
     return items
+}
+
+function getGuy(){
+    let guy=document.getElementById('guy');
+    return [guy]
 }
 
 function shoot(e){

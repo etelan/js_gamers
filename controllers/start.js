@@ -7,6 +7,9 @@ var StartController = {
   },
   Leaderboard: function(req, res) {
     res.render('start/leaderboard'), {title: 'Moving game'};
+  },
+  Death: function(req, res) {
+    res.render('start/game_over'), {title: 'Moving game'};
   }
 
 };

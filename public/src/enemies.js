@@ -8,7 +8,7 @@ class Enemy {
     enemy.className = 'enemy';
     enemy.style.left = this.x + "px";
     enemy.style.top = this.y + "px";
-    enemy.style.backgroundImage = "url('../images/enemy8.gif')";
+    enemy.style.backgroundImage = "url('../images/enemy5.gif')";
     document.getElementById("container").appendChild(enemy);
   }
 }
