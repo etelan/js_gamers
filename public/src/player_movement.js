@@ -15,13 +15,33 @@ function anim(e){
     heartCheck();
     keyCheck();
     shoot(e);
-    causeDamage();
+    // causeDamage();
     playerInventory.checkLife();
+
+    _itemUsable()
 
     trumpNoise(e);
 
     useItem(e, "door")
     // playAudio("backing_track");
+}
+
+function _itemUsable() {
+  // If there is a door, show E.
+  if (searchItem("door")) {
+    document.getElementById("canUse").style.color = "red"
+    document.getElementById("canUse").innerHTML = "<b>e</b>";
+
+    // Black if useable.
+    if (playerInventory.keyInventory.length > 0) {
+      document.getElementById("canUse").style.color = "black"
+      
+    } 
+    
+
+  } else {
+    document.getElementById("canUse").innerHTML = "";
+  }
 }
 
 function useItem(e, item){
