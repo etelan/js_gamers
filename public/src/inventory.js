@@ -64,7 +64,7 @@ class Inventory {
 
     checkLife(){
       if (this.heartInventory.length == 0){
-        playAudio("death");
+        document.getElementById("dead").submit();
       }
     }
 

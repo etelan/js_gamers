@@ -1,0 +1,30 @@
+  <head>
+    <link rel="stylesheet" href="/stylesheets/start.css">
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="#">
+    <title>GET READY</title>
+  </head>
+  <body>
+    {{title}}
+    <audio id="death">
+      <source src="https://opengameart.org/sites/default/files/1_8.mp3" type="audio/mp3">
+    </audio>
+    <audio id="game_over">
+      <source src="../audio/demon-go.mp3" type="audio/mp3">
+    </audio>
+    <div id="gameover_screen">
+      <!-- <h1> MOVING GAME </h1> -->
+      <img src="../images/game-over.png">
+      <form class="game_over" action="/">
+        <button id ="sbtn" type="submit"><img src="../images/startbutton.png" id="sbtn"></button>
+      </form>
+    </div>
+
+  </body>
+
+
+<script type="text/javascript" src="src/player_movement.js"></script>
+  <script type="text/javascript">
+    playAudio("death");
+    playAudio("game_over");
+  </script>

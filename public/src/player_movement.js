@@ -15,7 +15,7 @@ function anim(e){
     heartCheck();
     keyCheck();
     shoot(e);
-    // causeDamage();
+    causeDamage();
     playerInventory.checkLife();
 
     _itemUsable()
@@ -248,6 +248,11 @@ function checkFree(h,v,array){
 function getItem(item){
     let items=document.getElementsByClassName(item);
     return items
+}
+
+function getGuy(){
+    let guy=document.getElementById('guy');
+    return [guy]
 }
 
 function shoot(e){

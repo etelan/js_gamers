@@ -93,7 +93,6 @@ function causeDamage(){
       playerInventory.heartInventory.pop();
       playerInventory.updateDisplay()
       playAudio("grunt")
-
     }
   }
 }
