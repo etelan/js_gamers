@@ -64,3 +64,19 @@ function enemyMove() {
   let enemies=document.getElementsByClassName('enemy');
   randomMovement(enemies)
 }
+
+function causeDamage(){
+  let enemies=document.getElementsByClassName('enemy');
+  for (i = 0; i < enemies.length; i++) {
+    let hor = enemies[i].style.left.slice(0, -2);
+    x = parseInt(hor);
+    let ver = enemies[i].style.top.slice(0, -2);
+    y = parseInt(ver);
+    if (!checkFree(x, y, getGuy())) {
+      playerInventory.heartInventory.pop();
+      playerInventory.updateDisplay()
+      playAudio("grunt")
+
+    }
+  }
+}
