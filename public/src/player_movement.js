@@ -15,6 +15,8 @@ function anim(e){
     heartCheck();
     keyCheck();
     shoot(e);
+    causeDamage();
+    playerInventory.checkLife();
 
     trumpNoise(e);
 
