@@ -19,6 +19,23 @@ for (i = 0; i < level_1_enemies.length; i++) {
   level_1_enemies[i].createEnemy()
 }
 
+function bulletHit(){
+  var enemies = document.getElementsByClassName('enemy')
+  for (i = 0; i < enemies.length; i++) { 
+    let hor = enemies[i].style.left.slice(0, -2); 
+    x = parseInt(hor); 
+    let ver = enemies[i].style.top.slice(0, -2); 
+    y = parseInt(ver);
+    for (a = 0; a < 50; a++){
+      for (b = 0; b < 50; b++){
+        if(!checkFree(x + a , y + b,getItem('bullet'))){
+          enemies[i].remove();
+        }
+      }
+    }
+}
+}
+
 
 var enemyInterval = setInterval(enemyMove, 1000);
 

@@ -36,9 +36,9 @@ function _itemUsable() {
     // Black if useable.
     if (playerInventory.keyInventory.length > 0) {
       document.getElementById("canUse").style.color = "black"
-      
-    } 
-    
+
+    }
+
 
   } else {
     document.getElementById("canUse").innerHTML = "";
@@ -276,7 +276,8 @@ function bulletSetUp(direction){
     }
     bullet.bulletMove(guyHorizontal, guyVertical);
     checkBullets();
-  }, 50);
+    bulletHit();
+  }, 35);
 }
 
 // var myVar = setInterval(bulletMove, 1000);
