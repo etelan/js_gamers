@@ -25,11 +25,13 @@ function anim(e){
 function useItem(e, item){
   if (e.keyCode == 69) {
     if (searchItem(item)) {
-      var array = getItem(item)
-      deleteItem(array)
-      playerInventory.keyInventory.pop();
-      playerInventory.updateDisplay();
-      console.log("here")
+      if (playerInventory.keyInventory.length > 0) {
+        var array = getItem(item)
+        deleteItem(array)
+        playerInventory.keyInventory.pop();
+        playerInventory.updateDisplay();
+        console.log("here")
+      }
     }
   }
 }
