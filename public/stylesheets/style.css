@@ -1,28 +1,20 @@
-body {
-  background-color: black;
-}
-
 #container{
   height: 400px;
   width: 600px;
   outline: 1px solid black;
-  background-image: url('../images/grass.png') ;
+  background-image: url("https://opengameart.org/sites/default/files/styles/medium/public/grass_17.png") ;
   background-size: contain;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
 }
 #guy{
   position: absolute;
-  height: 60px;
-  width: 65px;
+  height: 50px;
+  width: 50px;
   outline: 1px solid block;
-  /* background-image: url("../images/trump-down.png") ;
+  background-image: url("https://www.pngfind.com/pngs/m/436-4369822_50-x-50-pixel-art-hd-png-download.png") ;
   background-size: contain;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   left: 0px;
-  overflow: hidden;
 }
 .bullet{
   position: absolute;
@@ -38,7 +30,8 @@ body {
   height: 50px;
   width: 50px;
   outline: 1px solid block;
-  background-image: url("../images/stonewall2.png");
+  /* background-color: black; */
+  background-image: url("https://opengameart.org/sites/default/files/styles/medium/public/a_0.png");
   background-size: contain;
   background-repeat: no-repeat;
   left: 300px;
@@ -51,7 +44,7 @@ body {
   width: 50px;
   outline: 1px solid block;
   /* background-color: black; */
-  background-image: url("../images/heart4.gif");
+  background-image: url("https://opengameart.org/sites/default/files/styles/medium/public/heart_7.png");
   background-size: contain;
   background-repeat: no-repeat;
   left: 300px;
@@ -91,59 +84,4 @@ body {
   outline: 1px solid block;
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-#heartDisplay {
-  position: relative;
-  top: 500px;
-  color: red;
-}
-
-#keyDisplay {
-  position: relative;
-  top: 520px;
-  color: red;
-}
-
-#bbtn {
-/* position: relative;
-top: 0px; */
-width: 400px;
-outline: none;
-background-color: transparent;
-border: none;
-}
-
-:root {
-  --pixel-size: 1;
-}
-
-#guy_spritesheet {
-  animation: moveSpritesheet 0.5s steps(6) infinite;
-  position: absolute;
-}
-
-.face-down {
-  top: calc(0px * var(--pixel-size));
-}
-
-.face-up {
-  top: calc(-120px * var(--pixel-size));
-}
-
-.face-left {
-  top: calc(-180px * var(--pixel-size));
-}
-
-.face-right {
-  top: calc(-60px * var(--pixel-size));
-}
-
-@keyframes moveSpritesheet {
-  from {
-    transform: translate3d(-1px,0,0)
-  }
-  to {
-    transform: translate3d(-100%,0,0)
-  }
 }

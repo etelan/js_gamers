@@ -8,17 +8,34 @@ class Enemy {
     enemy.className = 'enemy';
     enemy.style.left = this.x + "px";
     enemy.style.top = this.y + "px";
-    enemy.style.backgroundImage = "url('../images/enemy8.gif')";
+    enemy.style.backgroundImage = "url('../public/images/enemy1.png')";
     document.getElementById("container").appendChild(enemy);
   }
 }
 
-var level_1_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100)];
+var level_1_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100), new Enemy(200,100)];
+
 
 for (i = 0; i < level_1_enemies.length; i++) {
   level_1_enemies[i].createEnemy()
 }
 
+function bulletHit(){
+  var enemies = document.getElementsByClassName('enemy')
+  for (i = 0; i < enemies.length; i++) { 
+    let hor = enemies[i].style.left.slice(0, -2); 
+    x = parseInt(hor); 
+    let ver = enemies[i].style.top.slice(0, -2); 
+    y = parseInt(ver);
+    for (a = 0; a < 50; a++){
+      for (b = 0; b < 50; b++){
+        if(!checkFree(x + a , y + b,getItem('bullet'))){
+          enemies[i].remove();
+        }
+      }
+    }
+}
+}
 
 var enemyInterval = setInterval(enemyMove, 1000);
 
@@ -63,20 +80,4 @@ function randomMovement(beings){
 function enemyMove() {
   let enemies=document.getElementsByClassName('enemy');
   randomMovement(enemies)
-}
-
-function causeDamage(){
-  let enemies=document.getElementsByClassName('enemy');
-  for (i = 0; i < enemies.length; i++) {
-    let hor = enemies[i].style.left.slice(0, -2);
-    x = parseInt(hor);
-    let ver = enemies[i].style.top.slice(0, -2);
-    y = parseInt(ver);
-    if (!checkFree(x, y, getGuy())) {
-      playerInventory.heartInventory.pop();
-      playerInventory.updateDisplay()
-      playAudio("grunt")
-
-    }
-  }
 }

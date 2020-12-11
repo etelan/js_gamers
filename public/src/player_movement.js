@@ -15,10 +15,6 @@ function anim(e){
     heartCheck();
     keyCheck();
     shoot(e);
-    // causeDamage();
-    playerInventory.checkLife();
-
-    _itemUsable()
 
     trumpNoise(e);
 
@@ -26,34 +22,14 @@ function anim(e){
     // playAudio("backing_track");
 }
 
-function _itemUsable() {
-  // If there is a door, show E.
-  if (searchItem("door")) {
-    document.getElementById("canUse").style.color = "red"
-    document.getElementById("canUse").innerHTML = "<b>e</b>";
-
-    // Black if useable.
-    if (playerInventory.keyInventory.length > 0) {
-      document.getElementById("canUse").style.color = "black"
-      
-    } 
-    
-
-  } else {
-    document.getElementById("canUse").innerHTML = "";
-  }
-}
-
 function useItem(e, item){
   if (e.keyCode == 69) {
     if (searchItem(item)) {
-      if (playerInventory.keyInventory.length > 0) {
-        var array = getItem(item)
-        deleteItem(array)
-        playerInventory.keyInventory.pop();
-        playerInventory.updateDisplay();
-        console.log("here")
-      }
+      var array = getItem(item)
+      deleteItem(array)
+      playerInventory.keyInventory.pop();
+      playerInventory.updateDisplay();
+      console.log("here")
     }
   }
 }
@@ -182,22 +158,22 @@ function movement2(hor, ver) {
 function move(e){
   // Right
   if(e.keyCode == 39){
-    document.getElementById("guy_spritesheet").className = "face-right";
+    document.getElementById("guy").style.backgroundImage="url('../public/images/trump-right.png')";
     movement2(50,0)
   }
   // Left
   if(e.keyCode == 37){
-    document.getElementById("guy_spritesheet").className = "face-left";
+    document.getElementById("guy").style.backgroundImage="url('../public/images/trump-left.png')";
     movement2(-50,0)
   }
   // Up
   if(e.keyCode == 38){
-    document.getElementById("guy_spritesheet").className = "face-up";
+    document.getElementById("guy").style.backgroundImage="url('../public/images/trump-up.png')";
     movement2(0,-50)
   }
   // Down
   if(e.keyCode == 40){
-    document.getElementById("guy_spritesheet").className = "down";
+    document.getElementById("guy").style.backgroundImage="url('../public/images/trump-down.png')";
     movement2(0,50)
   }
 }
@@ -258,7 +234,7 @@ function shoot(e){
 function bulletSetUp(direction){
   let bullet = new Bullet(direction);
   bullet.createBullet(guyHorizontal, guyVertical);
-  document.getElementById(`${bullet.id}`).style.backgroundImage="url('../images/new_bullet_copy.png')";
+  document.getElementById(`${bullet.id}`).style.backgroundImage="url('../public/images/new_bullet copy.png')";
   var continuous = setInterval(function(){
     var check = document.getElementById(`${bullet.id}`);
     if (check == null) {
@@ -266,7 +242,8 @@ function bulletSetUp(direction){
     }
     bullet.bulletMove(guyHorizontal, guyVertical);
     checkBullets();
-  }, 50);
+    bulletHit();
+  }, 35);
 }
 
 // var myVar = setInterval(bulletMove, 1000);

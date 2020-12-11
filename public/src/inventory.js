@@ -2,11 +2,10 @@ class Inventory {
     constructor() {
       this.heartInventory = ["heart","heart","heart"];
       this.keyInventory = [];
-      this.weaponInventory = [];
     }
 
     addItem(element) {
-
+        
         // Heart
         if (element == "heart") {
 
@@ -18,7 +17,7 @@ class Inventory {
         }
 
         // Key
-        if (element == "key") {
+        if (element == "key") {      
 
             this.keyInventory.push(element);
 
@@ -42,7 +41,7 @@ class Inventory {
         if (this.keyInventory.length == 0) {
             document.getElementById("keyDisplay").innerHTML = String(this.keyInventory.length) + " keys";
         }
-
+    
 
         if (this.heartInventory.length == 1) {
             document.getElementById("heartDisplay").innerHTML = String(this.heartInventory.length) + " heart";
@@ -51,21 +50,12 @@ class Inventory {
         if (this.heartInventory.length > 1) {
             document.getElementById("heartDisplay").innerHTML = String(this.heartInventory.length) + " hearts";
         }
-
-        if (this.heartInventory.length == 0) {
-            document.getElementById("heartDisplay").innerHTML = String(this.heartInventory.length) + " heart";
-        }
+        
 
     }
 
     returnHeartInv() {
         return this.heartInventory;
-    }
-
-    checkLife(){
-      if (this.heartInventory.length == 0){
-        playAudio("death");
-      }
     }
 
 }
