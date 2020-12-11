@@ -118,7 +118,7 @@ border: none;
   --pixel-size: 1;
 }
 
-.guy_spritesheet {
+#guy_spritesheet {
   animation: moveSpritesheet 0.5s steps(6) infinite;
   position: absolute;
 }
@@ -128,15 +128,15 @@ border: none;
 }
 
 .face-up {
-  top: calc(-50px * var(--pixel-size));
+  top: calc(-120px * var(--pixel-size));
 }
 
 .face-left {
-  top: calc(-100px * var(--pixel-size));
+  top: calc(-180px * var(--pixel-size));
 }
 
 .face-right {
-  top: calc(-150px * var(--pixel-size));
+  top: calc(-60px * var(--pixel-size));
 }
 
 @keyframes moveSpritesheet {
