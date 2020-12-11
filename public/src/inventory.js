@@ -54,11 +54,17 @@ class Inventory {
         if (this.heartInventory.length == 0) {
             document.getElementById("heartDisplay").innerHTML = String(this.heartInventory.length) + " heart";
         }
-        
+
     }
 
     returnHeartInv() {
         return this.heartInventory;
+    }
+
+    checkLife(){
+      if (this.heartInventory.length == 0){
+        playAudio("death");
+      }
     }
 
 }
