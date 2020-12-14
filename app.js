@@ -2,10 +2,24 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var startRouter = require('./routes/start');
+const myModule = require('./public/src/module');
+
 //var playRouter = require('./routes/play');
+
+// Connect to client
+
+
 
 
 var app = express();
+
+client = myModule.clientCreate();
+myModule.clientConnect(client);
+
+client.query('SELECT * from untitled_table_195;', (err, res) => {
+    console.log(err, res)
+    client.end()
+  })
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
