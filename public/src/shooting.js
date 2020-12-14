@@ -107,4 +107,18 @@ function checkLaser(){
     }
   }
 }
+
+function checkBullets(){
+  var i;
+  let bullets = document.getElementsByClassName('bullet');
+  for (i = 0; i<bullets.length; i++){
+    let hor = bullets[i].style.left.slice(0,-2);
+    x = parseInt(hor);
+    let ver = bullets[i].style.top.slice(0,-2);
+    y = parseInt(ver);
+    if ((x > 550)||(x < 0)||(y > 350)||(y < 0)||(!checkFree(x , y,getItem('box')))||(!checkFree(x , y,getItem('door')))){
+      bullets[i].remove();
+    }
+  }
+}
 // let x = parseInt(myVar);
