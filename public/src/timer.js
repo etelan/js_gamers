@@ -1,12 +1,14 @@
 
 var seconds = 0;
 var interval ;
-function timer(mins) {
+function timer(mins, display) {
    const timerprogress = document.getElementById('timer');
    seconds = mins*10 || 0;
    interval = setInterval(function() {
 
         seconds--;
+
+        display.textContent = seconds;
         if(!seconds){
              clearInterval(interval);
                window.location.replace("/death");
@@ -16,5 +18,9 @@ function timer(mins) {
    },1000)
 }
 
-
-timer(6);
+window.onload = function() {
+  display = document.querySelector('#timer');
+  timer(6, display);
+}
+//
+// timer(6);
