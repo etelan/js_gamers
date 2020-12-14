@@ -17,10 +17,12 @@ function anim(e){
     shoot(e);
     causeDamage();
     playerInventory.checkLife();
+    playerInventory.selectWeapon(e.keyCode)
 
     _itemUsable()
 
-    trumpNoise(e);
+    // trumpNoise(e);
+    console.log(e.keyCode)
 
     useItem(e, "door")
     useExit(e, "exit")
