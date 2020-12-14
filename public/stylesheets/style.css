@@ -12,6 +12,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  flex-flow: column wrap;
+  overflow: hidden;
+
 }
 #weaponarea{
   height: 100px;
@@ -64,6 +68,27 @@ body {
   outline: 1px solid block;
   /* background-color: blue; */
   left: 0px;
+}
+
+.laser{
+  position: absolute;
+  height: 50px;
+  width: 600px;
+  opacity:0.4;
+  outline: 1px solid block;
+  background-color: red;
+  left: 0px;
+  transform-origin: 25px 25px;
+}
+
+.rotateDown {
+  transform: rotate(90deg); /* Equal to rotateZ(45deg) */
+}
+.rotateUp {
+  transform: rotate(270deg); /* Equal to rotateZ(45deg) */
+}
+.rotateBack {
+  transform: rotate(180deg); /* Equal to rotateZ(45deg) */
 }
 
 .box{
