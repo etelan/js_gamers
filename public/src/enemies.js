@@ -30,6 +30,10 @@ function bulletHit(){
       for (b = 0; b < 50; b++){
         if(!checkFree(x + a , y + b,getItem('bullet'))){
           enemies[i].remove();
+          var bullets = getItem('bullet');
+          for (c = 0; c < bullets.length; c++){
+            bullets[c].remove();
+          }
         }
       }
     }

@@ -22,7 +22,7 @@ function anim(e){
     _itemUsable()
 
     // trumpNoise(e);
-    console.log(e.keyCode)
+    // console.log(e.keyCode)
 
     useItem(e, "door")
     useExit(e, "exit")
