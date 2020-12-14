@@ -8,12 +8,12 @@ class Enemy {
     enemy.className = 'enemy';
     enemy.style.left = this.x + "px";
     enemy.style.top = this.y + "px";
-    enemy.style.backgroundImage = "url('../images/enemy8.gif')";
+    enemy.style.backgroundImage = "url('../images/enemy4.gif')";
     document.getElementById("container").appendChild(enemy);
   }
 }
 
-var level_1_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100)];
+var level_1_enemies = [new Enemy(250,350),new Enemy(450,100),new Enemy(100,100)];
 
 for (i = 0; i < level_1_enemies.length; i++) {
   level_1_enemies[i].createEnemy()

@@ -48,14 +48,15 @@ body {
 
 #guy{
   position: absolute;
-  height: 60px;
-  width: 65px;
+  height: 50px;
+  width: 30px;
   outline: 1px solid block;
   /* background-image: url("../images/trump-down.png") ;
   background-size: contain;
   background-repeat: no-repeat; */
-  left: 0px;
+  left: 10px;
   overflow: hidden;
+
 }
 .bullet{
   position: absolute;
@@ -71,7 +72,7 @@ body {
   height: 50px;
   width: 50px;
   outline: 1px solid block;
-  background-image: url("../images/stonewall2.png");
+  background-image: url("../images/stonewall1.png");
   background-size: contain;
   background-repeat: no-repeat;
   left: 300px;
@@ -184,7 +185,7 @@ border: none;
 
 @keyframes moveTeleporter {
   from {
-    transform: translate3d(1px,0,0)
+    transform: translate3d(3px,0,0)
   }
   to {
     transform: translate3d(-100%,0,0)
@@ -193,11 +194,11 @@ border: none;
 
 
 :root {
-  --pixel-size: 1;
+  --pixel-size: 5;
 }
 
 #guy_spritesheet {
-  animation: moveSpritesheet 0.5s steps(6) infinite;
+  animation: moveSpritesheet 0.4s steps(3) infinite;
   position: absolute;
 }
 
@@ -206,20 +207,20 @@ border: none;
 }
 
 .face-up {
-  top: calc(-120px * var(--pixel-size));
+  top: calc(-27px * var(--pixel-size));
 }
 
 .face-left {
-  top: calc(-180px * var(--pixel-size));
+  top: calc(-9px * var(--pixel-size));
 }
 
 .face-right {
-  top: calc(-60px * var(--pixel-size));
+  top: calc(-18px * var(--pixel-size));
 }
 
 @keyframes moveSpritesheet {
   from {
-    transform: translate3d(-1px,0,0)
+    transform: translate3d(0px)
   }
   to {
     transform: translate3d(-100%,0,0)
