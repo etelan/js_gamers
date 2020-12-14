@@ -162,7 +162,7 @@ border: none;
 }
 
 #timer {
-  background-image: linear-gradient(to right,#f52b02,#f5e502,#53f502);
+  background-image: linear-gradient(to top,#4269f5,#8742f5,#f542b3,#f54242);
   /* width: 500px; */
   height: 50px;
   position: absolute;

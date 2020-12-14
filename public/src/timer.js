@@ -3,7 +3,7 @@ var seconds = 0;
 var interval ;
 function timer(mins) {
    const timerprogress = document.getElementById('timer');
-   seconds = mins*60 || 0;
+   seconds = mins*10 || 0;
    interval = setInterval(function() {
 
         seconds--;
@@ -17,4 +17,4 @@ function timer(mins) {
 }
 
 
-timer(1);
+timer(6);
