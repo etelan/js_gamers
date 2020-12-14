@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: pink;
 }
 
 #container{
@@ -159,6 +159,16 @@ width: 400px;
 outline: none;
 background-color: transparent;
 border: none;
+}
+
+#timer {
+  background-image: linear-gradient(to right,#f52b02,#f5e502,#53f502);
+  /* width: 500px; */
+  height: 50px;
+  position: absolute;
+  top: 50px;
+  left: auto;
+
 }
 
 #teleporter {
