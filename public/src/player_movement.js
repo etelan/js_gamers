@@ -16,7 +16,6 @@ function anim(e){
     keyCheck();
     shoot(e);
     causeDamage();
-    playerInventory.checkLife();
     playerInventory.selectWeapon(e.keyCode)
 
     _itemUsable()
