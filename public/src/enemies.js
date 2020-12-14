@@ -83,7 +83,8 @@ function randomMovement(beings){
 
 function enemyMove() {
   let enemies=document.getElementsByClassName('enemy');
-  randomMovement(enemies)
+  randomMovement(enemies);
+  causeDamage();
 }
 
 function causeDamage(){
