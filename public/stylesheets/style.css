@@ -29,7 +29,7 @@ body {
   height: 50px;
   width: 50px;
   outline: 1px solid block;
-  background-color: blue;
+  /* background-color: blue; */
   left: 0px;
 }
 
@@ -99,11 +99,12 @@ body {
   width: 50px;
   outline: 1px solid block;
   /* background-color: black; */
-  background-image: url('../images/door.png');
+  /* background-image: url('../images/door.png');
   background-size: contain;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   left: 550px;
   top: 0px;
+  overflow: hidden;
 }
 
 #heartDisplay {
@@ -126,6 +127,21 @@ outline: none;
 background-color: transparent;
 border: none;
 }
+
+#teleporter {
+  animation: moveTeleporter 3s steps(11) infinite;
+  position: absolute;
+}
+
+@keyframes moveTeleporter {
+  from {
+    transform: translate3d(1px,0,0)
+  }
+  to {
+    transform: translate3d(-100%,0,0)
+  }
+}
+
 
 :root {
   --pixel-size: 1;
