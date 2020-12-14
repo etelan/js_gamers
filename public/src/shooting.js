@@ -95,6 +95,7 @@ class Laser {
 }
 
 function checkLaser(){
+  console.log("laser check")
   var i;
   let bullets = document.getElementsByClassName('laser');
   for (i = 0; i<bullets.length; i++){
