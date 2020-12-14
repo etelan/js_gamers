@@ -18,10 +18,11 @@
   },
   "homepage": "https://github.com/etelan/js_gamers#readme",
   "dependencies": {
-    "express": "^4.17.1",
     "cookie-parser": "~1.4.4",
+    "express": "^4.17.1",
     "hbs": "^4.1.1",
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.19.4",
+    "pg": "^8.5.1"
   },
   "devDependencies": {
     "jasmine": "^3.6.3"
