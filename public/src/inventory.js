@@ -35,16 +35,19 @@ class Inventory {
             document.getElementById("weapon0").className = "weaponboxSelected"
             document.getElementById("weapon1").className = "weaponbox"
             document.getElementById("weapon2").className = "weaponbox"
+            this.weaponSelect = 0;
         }
         else if (selection == 50) {
             document.getElementById("weapon0").className = "weaponbox"
             document.getElementById("weapon1").className = "weaponboxSelected"
             document.getElementById("weapon2").className = "weaponbox"
+            this.weaponSelect = 1;
         }
         else if (selection == 51) {
             document.getElementById("weapon0").className = "weaponbox"
             document.getElementById("weapon1").className = "weaponbox"
             document.getElementById("weapon2").className = "weaponboxSelected"
+            this.weaponSelect = 2;
         }
     }
 
