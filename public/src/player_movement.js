@@ -3,6 +3,7 @@
 var guyHorizontal = 0;
 var guyVertical = 0;
 var hearts = 0;
+var score = 0;
 
 
 
@@ -22,7 +23,6 @@ function anim(e){
     _itemUsable()
 
     // trumpNoise(e);
-    console.log(e.keyCode)
 
     useItem(e, "door")
     useExit(e, "exit")
@@ -55,7 +55,6 @@ function useItem(e, item){
         deleteItem(array)
         playerInventory.keyInventory.pop();
         playerInventory.updateDisplay();
-        console.log("yoo")
       }
     }
   }
@@ -95,6 +94,9 @@ function heartCheck() {
   if (hearts !== undefined) {
     deleteHeart(hearts);
     playerInventory.addItem("heart")
+    score += 5
+    document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
+    console.log(score)
   }
 }
 
@@ -123,12 +125,10 @@ function deleteItem(items) {
     // if ((playerHorizontal == x) && (playerVertical == y)){
       removeElement(items[i].id)
     // }
-    console.log("here2")
   }
 }
 
 function deleteHeart(items) {
-  console.log(items)
   // Find specific heart and delete it
   for (i = 0; i < items.length; i++) {
 
@@ -140,7 +140,6 @@ function deleteHeart(items) {
     if ((guyHorizontal == x) && (guyVertical == y)){
       removeElement(items[i].id)
     }
-    console.log("yep")
   }
 }
 
