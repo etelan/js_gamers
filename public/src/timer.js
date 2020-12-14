@@ -20,7 +20,7 @@ function timer(mins, display) {
 
 window.onload = function() {
   display = document.querySelector('#timer');
-  timer(6, display);
+  // timer(6, display);
 }
 //
 // timer(6);

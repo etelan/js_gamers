@@ -10,8 +10,10 @@ var StartController = {
   },
   Death: function(req, res) {
     res.render('start/game_over'), {title: 'Moving game'};
+  },
+  Level3: function(req, res) {
+    res.render('start/level3'),  {title: 'Moving game'};
   }
-
 };
 
 module.exports = StartController;

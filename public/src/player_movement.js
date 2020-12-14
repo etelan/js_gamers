@@ -79,7 +79,7 @@ function searchItem(item) {
 function useExit(e, item){
   if (e.keyCode == 69) {
     if (searchItem(item)) {
-      window.location.replace("/");
+      window.location.replace("/level3")
     }
   }
 }
