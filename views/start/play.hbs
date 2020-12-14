@@ -35,7 +35,6 @@
         <p id="canUse"></p>
       </div>
 
-      <div id="bullet"></div>
       <div class="box" style="left:100px; top:0px"></div>
      <div class="box" style="left:250px; top:0px"></div>
      <div class="box" style="left:400px; top:0px"></div>
@@ -73,9 +72,10 @@
       <div id="door1" class="door" style="left:200px; top:150px"></div>
 
       <div id="exit1" class="exit" style="left:550px; top:0px">
-        <img style="height: 50px; width: 550px" id="teleporter" src="../images/teleporter.png" alt="teleporter" />
+        <form id="nextLevel" action="/level2">
+          <img style="height: 50px; width: 550px" id="teleporter" src="../images/teleporter.png" alt="teleporter" />
+        </form>
       </div>
-
 
     </div>
 
@@ -105,9 +105,7 @@
   <script type="text/javascript" src="src/inventory.js"></script>
   <script type="text/javascript" src="src/timer.js"></script>
   <script>
-
-    
-
+    level1Enemies();
     // Inventory
     var playerInventory = new Inventory();
     document.onkeydown = anim
