@@ -148,7 +148,13 @@ body {
 
 #keyDisplay {
   position: relative;
-  top: 520px;
+  top: 510px;
+  color: red;
+}
+
+#scoreDisplay {
+  position: relative;
+  top: 500px;
   color: red;
 }
 

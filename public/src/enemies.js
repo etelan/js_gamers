@@ -30,6 +30,8 @@ function bulletHit(){
       for (b = 0; b < 50; b++){
         if(!checkFree(x + a , y + b,getItem('bullet'))){
           enemies[i].remove();
+          score += 20
+          document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
           var bullets = getItem('bullet');
           for (c = 0; c < bullets.length; c++){
             bullets[c].remove();
@@ -98,6 +100,8 @@ function causeDamage(){
       playerInventory.heartInventory.pop();
       playerInventory.updateDisplay()
       playAudio("grunt")
+      score -= 5
+      document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
       playerInventory.checkLife();
     }
   }
