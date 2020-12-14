@@ -55,7 +55,7 @@ function checkBullets(){
     x = parseInt(hor);
     let ver = bullets[i].style.top.slice(0,-2);
     y = parseInt(ver);
-    if ((x > 550)||(x < 0)||(y > 350)||(y < 0)){
+    if ((x > 550)||(x < 0)||(y > 350)||(y < 0)||(!checkFree(x , y,getItem('box')))||(!checkFree(x , y,getItem('door')))){
       bullets[i].remove();
     }
   }

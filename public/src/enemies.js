@@ -32,6 +32,10 @@ function bulletHit(){
           enemies[i].remove();
           score += 20
           document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
+          var bullets = getItem('bullet');
+          for (c = 0; c < bullets.length; c++){
+            bullets[c].remove();
+          }
         }
       }
     }
@@ -81,7 +85,8 @@ function randomMovement(beings){
 
 function enemyMove() {
   let enemies=document.getElementsByClassName('enemy');
-  randomMovement(enemies)
+  randomMovement(enemies);
+  causeDamage();
 }
 
 function causeDamage(){
@@ -97,6 +102,7 @@ function causeDamage(){
       playAudio("grunt")
       score -= 5
       document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
+      playerInventory.checkLife();
     }
   }
 }

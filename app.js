@@ -2,10 +2,36 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var startRouter = require('./routes/start');
+const myModule = require('./public/src/module');
+
 //var playRouter = require('./routes/play');
+
+// Connect to client
+
+
 
 
 var app = express();
+
+app.get('/database', (req, res) => {
+    // Front End
+    console.log("BC")
+    client = myModule.clientCreate();
+    console.log("BCC")
+    myModule.clientConnect(client);
+
+    console.log("BQ")
+    client.query('SELECT * FROM production_leaderboard;', (err, res) => {
+        console.log(err, res)
+        client.end()
+    })
+
+    res.send("test")
+
+    console.log("END")
+});
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

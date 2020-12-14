@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: pink;
 }
 
 #container{
@@ -62,7 +62,7 @@ body {
   height: 50px;
   width: 50px;
   outline: 1px solid block;
-  background-color: blue;
+  /* background-color: blue; */
   left: 0px;
 }
 
@@ -132,11 +132,12 @@ body {
   width: 50px;
   outline: 1px solid block;
   /* background-color: black; */
-  background-image: url('../images/door.png');
+  /* background-image: url('../images/door.png');
   background-size: contain;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   left: 550px;
   top: 0px;
+  overflow: hidden;
 }
 
 #heartDisplay {
@@ -165,6 +166,31 @@ outline: none;
 background-color: transparent;
 border: none;
 }
+
+#timer {
+  background-image: linear-gradient(to top,#4269f5,#8742f5,#f542b3,#f54242);
+  /* width: 500px; */
+  height: 50px;
+  position: absolute;
+  top: 50px;
+  left: auto;
+
+}
+
+#teleporter {
+  animation: moveTeleporter 3s steps(11) infinite;
+  position: absolute;
+}
+
+@keyframes moveTeleporter {
+  from {
+    transform: translate3d(1px,0,0)
+  }
+  to {
+    transform: translate3d(-100%,0,0)
+  }
+}
+
 
 :root {
   --pixel-size: 1;
