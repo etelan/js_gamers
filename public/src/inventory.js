@@ -2,7 +2,8 @@ class Inventory {
     constructor() {
       this.heartInventory = ["heart","heart","heart"];
       this.keyInventory = [];
-      this.weaponInventory = [];
+      this.weaponInventory = ["normal"];
+      this.weaponSelect = 0;
     }
 
     addItem(element) {
@@ -27,6 +28,24 @@ class Inventory {
             return this.keyInventory;
         }
 
+    }
+
+    selectWeapon(selection) {
+        if (selection == 49) {
+            document.getElementById("weapon0").className = "weaponboxSelected"
+            document.getElementById("weapon1").className = "weaponbox"
+            document.getElementById("weapon2").className = "weaponbox"
+        }
+        else if (selection == 50) {
+            document.getElementById("weapon0").className = "weaponbox"
+            document.getElementById("weapon1").className = "weaponboxSelected"
+            document.getElementById("weapon2").className = "weaponbox"
+        }
+        else if (selection == 51) {
+            document.getElementById("weapon0").className = "weaponbox"
+            document.getElementById("weapon1").className = "weaponbox"
+            document.getElementById("weapon2").className = "weaponboxSelected"
+        }
     }
 
     updateDisplay() {
