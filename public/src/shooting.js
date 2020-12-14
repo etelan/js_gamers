@@ -53,11 +53,8 @@ class Laser {
     this.direction = direction;
     this.bulletHorizontal = 0;
     this.bulletVertical = 0;
-    this.id = this.createId();
+    this.id = "laserbeam"
   }
-  createId() {
-    return Math.random().toString(36).substr(2, 9);
-  };
 
   createLaser(x, y) {
     var bullet = document.createElement('div');
@@ -67,6 +64,10 @@ class Laser {
     bullet.style.top = y + "px";
     document.getElementById("container").appendChild(bullet);
     return document.getElementById(`${this.id}`);
+  }
+
+  getDirection() {
+    return this.direction
   }
 
 
@@ -95,7 +96,6 @@ class Laser {
 }
 
 function checkLaser(){
-  console.log("laser check")
   var i;
   let bullets = document.getElementsByClassName('laser');
   for (i = 0; i<bullets.length; i++){

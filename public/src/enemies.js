@@ -39,9 +39,64 @@ function bulletHit(){
         }
       }
     }
-}
+  }
 }
 
+function laserHit(){
+  // Get enemies
+  var enemies = document.getElementsByClassName('enemy')
+  var lasers = document.getElementsByClassName('laser')
+  
+  
+  let laser = lasers[0]
+  let direction = ""
+  console.log(laser)
+
+  // For i in enemies
+  for (i = 0; i < enemies.length; i++) {
+
+    // Get Coords
+    let hor = enemies[i].style.left.slice(0, -2);
+    x = parseInt(hor);
+    let ver = enemies[i].style.top.slice(0, -2);
+    y = parseInt(ver);
+
+    
+
+    for (a = 0; a < 50; a++){
+      for (b = 0; b < 50; b++){
+
+        // ...Check if laser
+        if(!checkFree(x + a , y + b,getItem('laser'))){
+
+          // Delete the enemies and increase score
+          enemies[i].remove();
+          score += 20
+
+          // Update Scoreboard
+          document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
+        }
+      }
+    }
+  }
+}
+
+function laserCheck(laser, x, y) {
+
+  let direction = laser.getDirection()
+
+
+
+  switch (direction) {
+    case "right":
+      xdif = x - parseInt(laser.style.left.slice(0, -2));
+      return [xdif, 0];
+      break;
+  
+    default:
+      break;
+  }
+}
 
 var enemyInterval = setInterval(enemyMove, 1000);
 
@@ -82,6 +137,8 @@ function randomMovement(beings){
     }
   }
 }
+
+
 
 function enemyMove() {
   let enemies=document.getElementsByClassName('enemy');

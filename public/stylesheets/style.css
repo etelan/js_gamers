@@ -75,7 +75,7 @@ body {
   height: 50px;
   width: 600px;
   opacity:0.4;
-  outline: 1px solid block;
+  outline: 1px solid red;
   background-color: red;
   left: 0px;
   transform-origin: 25px 25px;
