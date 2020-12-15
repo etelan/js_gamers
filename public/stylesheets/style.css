@@ -127,6 +127,7 @@ body {
   background-repeat: no-repeat;
   left: 300px;
   top: 200px;
+  z-index: -10
 }
 
 .door{
@@ -142,6 +143,18 @@ body {
   top: 200px;
 }
 
+.bush{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid block;
+  background-image: url("../images/bush.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 300px;
+  top: 200px;
+}
+
 .enemy{
   position: absolute;
   height: 50px;
@@ -149,6 +162,7 @@ body {
   outline: 1px solid block;
   background-size: contain;
   background-repeat: no-repeat;
+  z-index: -10
 }
 
 .exit{
