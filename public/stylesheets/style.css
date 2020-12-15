@@ -39,6 +39,16 @@ body {
 
   transform: translate(-50%, -50%);
 }
+
+.imageWeapon {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  outline: 0;
+}
+
+
+
 .weaponboxSelected{
   float:left;
   height: 100px;
@@ -119,6 +129,8 @@ body {
   left: 300px;
   top: 200px;
 }
+
+
 
 .key{
   position: absolute;
