@@ -277,7 +277,11 @@ function shoot(e){
     if(e.keyCode == 68){
       bulletSetUp("right")
     }
-  } else if ((playerInventory.weaponSelect == 1) && (document.getElementsByClassName("laser").length == 0)) {
+  } else if ((playerInventory.weaponSelect == 1) // Weapon Selected
+              && (document.getElementsByClassName("laser").length == 0) // No other lasers
+              && (document.getElementById("weapon1").style.backgroundColor != "rgb(139, 0, 0)")) // Hasn't been fired
+  {
+    console.log(document.getElementById("weapon1").style.backgroundColor)
     if(e.keyCode == 87){
       laserSetup("up")
     }

@@ -22,6 +22,40 @@ var level_2_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100),
 
 var level_3_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100),new Enemy(500,100),new Enemy(100,300)];
 
+var level_4_enemies = [
+  // Room 1
+  new Enemy(0,300),
+  new Enemy(50,300),
+  new Enemy(0,250),
+  new Enemy(50,250),
+  
+  // Room 2
+  new Enemy(200,50),
+  new Enemy(200,100),
+  new Enemy(200,150),
+  new Enemy(200,200),
+  
+  new Enemy(150,50),
+  new Enemy(150,100),
+  new Enemy(150,150),
+  new Enemy(150,200),
+
+  // Room 3
+  new Enemy(550,50),
+  new Enemy(550,100),
+  new Enemy(550,150),
+  new Enemy(550,200),
+
+  new Enemy(500,50),
+  new Enemy(500,100),
+  new Enemy(500,150),
+  new Enemy(500,200),
+  
+  new Enemy(450,50),
+  new Enemy(450,100),
+  new Enemy(450,150),
+  new Enemy(450,200),]
+
 function level1Enemies(){
   for (i = 0; i < level_1_enemies.length; i++) {
     level_1_enemies[i].createEnemy()
@@ -37,6 +71,12 @@ function level2Enemies(){
 function level3Enemies(){
   for (i = 0; i < level_3_enemies.length; i++) {
     level_3_enemies[i].createEnemy()
+  }
+}
+
+function level4Enemies(){
+  for (i = 0; i < level_4_enemies.length; i++) {
+    level_4_enemies[i].createEnemy()
   }
 }
 
@@ -78,8 +118,6 @@ function laserHit(){
   var lowVert = 0
   var highVert = 0
   var inZone = false
-
-  console.log(document.getElementById(`${laser.id}`).classList)
 
   if (document.getElementById(`${laser.id}`).classList[1] == "rotateDown") {
     direction = "down";
@@ -174,13 +212,8 @@ function laserHit(){
 
 
     if ((x >= lowHor) && (x <= highHor)) {
-      console.log("Within X.")
 
-      console.log("LOW V: " + String(lowVert))
-      console.log("HIGH V: " + String(highVert))
-      console.log(y)
       if ((y >= lowVert) && (y <= highVert)) {
-        console.log("Within Y.")
 
         // Do our enemy shizzle
         enemies[i].remove();

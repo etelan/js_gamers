@@ -25,7 +25,7 @@ body {
   background-size: contain;
   position: absolute;
   top: 90%;
-  left: 57%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
@@ -36,9 +36,17 @@ body {
   outline: 1px solid black;
   background-color: gray ;
   background-size: contain;
-
-  transform: translate(-50%, -50%);
 }
+
+.imageWeapon {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  outline: 0;
+}
+
+
+
 .weaponboxSelected{
   float:left;
   height: 100px;
@@ -47,7 +55,7 @@ body {
   background-color: gray ;
   background-size: contain;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-20%, -20%);
 }
 
 #guy{
@@ -119,6 +127,8 @@ body {
   left: 300px;
   top: 200px;
 }
+
+
 
 .key{
   position: absolute;

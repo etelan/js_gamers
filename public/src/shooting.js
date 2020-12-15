@@ -63,6 +63,7 @@ class Laser {
     bullet.style.left = x + "px";
     bullet.style.top = y + "px";
     document.getElementById("container").appendChild(bullet);
+    document.getElementById("weapon1").style.backgroundColor = "rgb(139,0,0)";
     return document.getElementById(`${this.id}`);
   }
 
