@@ -1,105 +1,54 @@
-class Enemy {
+class Boss {
   constructor(x,y){
     this.x = x;
     this.y = y;
+    this.id = this.createId();
   }
-  createEnemy() {
-    var enemy = document.createElement('div');
-    enemy.className = 'enemy';
-    enemy.style.left = this.x + "px";
-    enemy.style.top = this.y + "px";
-    enemy.style.backgroundImage = "url('../images/enemy9.gif')";
-    document.getElementById("container").appendChild(enemy);
-  }
-}
+  createId() {
+    return Math.random().toString(36).substr(2, 9);
+  };
 
-var level_1_enemies = [new Enemy(250,350),new Enemy(450,100),new Enemy(100,100)];
-
-var level_2_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100),
-  new Enemy(200,200),new Enemy(250,200),new Enemy(300,200),new Enemy(350,200),
-  new Enemy(400,200),new Enemy(450,200),new Enemy(200,250),new Enemy(250,250),
-  new Enemy(300,250),new Enemy(350,250),new Enemy(400,250),new Enemy(450,250)];
-
-var level_3_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100),new Enemy(500,100),new Enemy(100,300)];
-
-var level_4_enemies = [
-  // Room 1
-  new Enemy(0,300),
-  new Enemy(50,300),
-  new Enemy(0,250),
-  new Enemy(50,250),
-  
-  // Room 2
-  new Enemy(200,50),
-  new Enemy(200,100),
-  new Enemy(200,150),
-  new Enemy(200,200),
-  
-  new Enemy(150,50),
-  new Enemy(150,100),
-  new Enemy(150,150),
-  new Enemy(150,200),
-
-  // Room 3
-  new Enemy(550,50),
-  new Enemy(550,100),
-  new Enemy(550,150),
-  new Enemy(550,200),
-
-  new Enemy(500,50),
-  new Enemy(500,100),
-  new Enemy(500,150),
-  new Enemy(500,200),
-  
-  new Enemy(450,50),
-  new Enemy(450,100),
-  new Enemy(450,150),
-  new Enemy(450,200),]
-
-var level_5_enemies = [new Enemy(300,300),new Enemy(200,150),new Enemy(100,0),new Enemy(50,100),new Enemy(100,400)];
-
-function level1Enemies(){
-  for (i = 0; i < level_1_enemies.length; i++) {
-    level_1_enemies[i].createEnemy()
+  createBoss() {
+    var boss = document.createElement('div');
+    const health = document.getElementById('health');
+    health.style.width = 1000 + "px";
+    boss.className = 'boss';
+    boss.id = this.id;
+    boss.style.left = this.x + "px";
+    boss.style.top = this.y + "px";
+    boss.style.backgroundImage = "url('../images/enemy4.gif')";
+    document.getElementById("container").appendChild(boss);
   }
 }
 
-function level2Enemies(){
-  for (i = 0; i < level_2_enemies.length; i++) {
-    level_2_enemies[i].createEnemy()
+var boss_level_1 = [new Boss(250,100)];
+
+var repeat_enemies = [new Enemy(250,350),new Enemy(450,100),new Enemy(100,100)]
+
+function Bosslevel1(){
+  for (i = 0; i < boss_level_1.length; i++) {
+    boss_level_1[i].createBoss()
   }
 }
 
-function level3Enemies(){
-  for (i = 0; i < level_3_enemies.length; i++) {
-    level_3_enemies[i].createEnemy()
-  }
-}
+var damage = 0;
 
-
-function level4Enemies(){
-  for (i = 0; i < level_4_enemies.length; i++) {
-    level_4_enemies[i].createEnemy()
-  }
-}
-
-function level5Enemies(){
-  for (i = 0; i < level_5_enemies.length; i++) {
-    level_5_enemies[i].createEnemy()
-  }
-}
-
-function bulletHit(){
-  var enemies = document.getElementsByClassName('enemy')
-  for (i = 0; i < enemies.length; i++) {
-    let hor = enemies[i].style.left.slice(0, -2);
+function bulletHitBoss(){
+  var boss = document.getElementsByClassName('boss')
+  const health = document.getElementById('health');
+  for (i = 0; i < boss.length; i++) {
+    let hor = boss[i].style.left.slice(0, -2);
     x = parseInt(hor);
-    let ver = enemies[i].style.top.slice(0, -2);
+    let ver = boss[i].style.top.slice(0, -2);
     y = parseInt(ver);
-    for (a = 0; a < 50; a++){
-      for (b = 0; b < 50; b++){
+    for (a = 0; a < 300; a++){
+      for (b = 0; b < 300; b++){
         if(!checkFree(x + a , y + b,getItem('bullet'))){
-          enemies[i].remove();
+          damage += 10;
+          health.style.width = 1000 - damage + "px";
+          if (health.style.width == 0 + "px"){
+            boss[i].remove();
+          }
           score += 20
           document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
           var bullets = getItem('bullet');
@@ -112,12 +61,12 @@ function bulletHit(){
   }
 }
 
-function laserHit(){
+function laserHitBoss(){
   // Get enemies
-  var enemies = document.getElementsByClassName('enemy')
+  var boss = document.getElementsByClassName('boss')
   var lasers = document.getElementsByClassName('laser')
-  
-  
+
+
   let laser = lasers[0]
   var direction = ""
   var horLen = 50
@@ -127,6 +76,8 @@ function laserHit(){
   var lowVert = 0
   var highVert = 0
   var inZone = false
+
+  console.log(document.getElementById(`${laser.id}`).classList)
 
   if (document.getElementById(`${laser.id}`).classList[1] == "rotateDown") {
     direction = "down";
@@ -139,7 +90,7 @@ function laserHit(){
 
     // High Bound Ver
     highVert = lowVert + verLen
-    
+
 
     // Low Bound Hor
     lowHor = document.getElementById(`${laser.id}`).style.left.slice(0, -2);
@@ -180,7 +131,7 @@ function laserHit(){
 
     // High Bound Ver
     lowHor = highHor + horLen
-    
+
 
     // Low Bound Ver
     lowVert = document.getElementById(`${laser.id}`).style.top.slice(0, -2);
@@ -211,38 +162,41 @@ function laserHit(){
   }
 
   // For i in enemies
-  for (i = 0; i < enemies.length; i++) {
+  for (i = 0; i < boss.length; i++) {
 
     // Get Coords
-    let hor = enemies[i].style.left.slice(0, -2);
+    let hor = boss[i].style.left.slice(0, -2);
     x = parseInt(hor);
-    let ver = enemies[i].style.top.slice(0, -2);
+    let ver = boss[i].style.top.slice(0, -2);
     y = parseInt(ver);
 
 
     if ((x >= lowHor) && (x <= highHor)) {
+      console.log("Within X.")
 
+      console.log("LOW V: " + String(lowVert))
+      console.log("HIGH V: " + String(highVert))
+      console.log(y)
       if ((y >= lowVert) && (y <= highVert)) {
+        console.log("Within Y.")
 
         // Do our enemy shizzle
-        enemies[i].remove();
+        boss[i].remove();
         score += 20
-        document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score); 
+        document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
 
       }
     }
 
-    
 
 
-    }      
+
+    }
   }
 
+var enemyInterval = setInterval(bossMove, 500);
 
-
-var enemyInterval = setInterval(enemyMove, 1000);
-
-function randomMovement(beings){
+function randomMovementBoss(beings){
   for (i = 0; i < beings.length; i++) {
     let hor = beings[i].style.left.slice(0, -2);
     x = parseInt(hor);
@@ -251,28 +205,28 @@ function randomMovement(beings){
     let direction = Math.floor(Math.random() * 4);
     if (direction == 0 ){
       if (checkFree(x + 50, y, getItem('box'))){
-        if ( (x != 550)&&(50 > 0) ) {
+        if ( (x + 50 != 350)&&(50 > 0) ) {
           beings[i].style.left = (x + 50) + 'px';
         }
       }
     }
     else if(direction == 1 )  {
       if (checkFree(x - 50, y, getItem('box'))){
-        if ( (x != 0)&&(-50 < 0) ) {
+        if ( (x - 50 != -50)&&(-50 < 0) ) {
           beings[i].style.left = (x - 50) + 'px';
         }
       }
     }
     else if(direction == 2 )  {
       if (checkFree(x, y - 50, getItem('box'))){
-        if ( (y != 0)&&(-50 < 0) ) {
+        if ( (y - 50 != -50)&&(-50 < 0) ) {
           beings[i].style.top = (y - 50) + 'px';
         }
       }
     }
     else {
       if (checkFree(x, y + 50, getItem('box'))){
-        if ( (y != 350)&&(50 > 0) ) {
+        if ( (y + 50 != 150)&&(50 > 0) ) {
           beings[i].style.top = (y + 50) + 'px';
         }
       }
@@ -282,26 +236,30 @@ function randomMovement(beings){
 
 
 
-function enemyMove() {
-  let enemies=document.getElementsByClassName('enemy');
-  randomMovement(enemies);
-  causeDamage();
+function bossMove() {
+  let boss=document.getElementsByClassName('boss');
+  randomMovementBoss(boss);
+  causeDamageBoss();
 }
 
-function causeDamage(){
-  let enemies=document.getElementsByClassName('enemy');
-  for (i = 0; i < enemies.length; i++) {
-    let hor = enemies[i].style.left.slice(0, -2);
+function causeDamageBoss(){
+  let boss=document.getElementsByClassName('boss');
+  for (i = 0; i < boss.length; i++) {
+    let hor = boss[i].style.left.slice(0, -2);
     x = parseInt(hor);
-    let ver = enemies[i].style.top.slice(0, -2);
+    let ver = boss[i].style.top.slice(0, -2);
     y = parseInt(ver);
-    if (!checkFree(x, y, getGuy())) {
-      playerInventory.heartInventory.pop();
-      playerInventory.updateDisplay()
-      playAudio("grunt")
-      score -= 5
-      document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
-      playerInventory.checkLife();
+    for (a = 0; a < 300; a++){
+      for (b = 0; b < 300; b++){
+        if (!checkFree(x + a, y + b, getGuy())) {
+          playerInventory.heartInventory.pop();
+          playerInventory.updateDisplay()
+          playAudio("grunt")
+          score -= 5
+          document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
+          playerInventory.checkLife();
+        }
+      }
     }
   }
 }

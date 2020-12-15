@@ -25,7 +25,7 @@ body {
   background-size: contain;
   position: absolute;
   top: 90%;
-  left: 57%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
@@ -36,9 +36,17 @@ body {
   outline: 1px solid black;
   background-color: gray ;
   background-size: contain;
-
-  transform: translate(-50%, -50%);
 }
+
+.imageWeapon {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  outline: 0;
+}
+
+
+
 .weaponboxSelected{
   float:left;
   height: 100px;
@@ -47,7 +55,7 @@ body {
   background-color: gray ;
   background-size: contain;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-20%, -20%);
 }
 
 #guy{
@@ -75,10 +83,14 @@ body {
   height: 50px;
   width: 600px;
   opacity:0.4;
-  outline: 1px solid block;
+  outline: 1px solid red;
   background-color: red;
   left: 0px;
   transform-origin: 25px 25px;
+}
+
+.noRotate {
+  transform: rotate(0deg); /* Equal to rotateZ(45deg) */
 }
 
 .rotateDown {
@@ -116,6 +128,8 @@ body {
   top: 200px;
 }
 
+
+
 .key{
   position: absolute;
   height: 50px;
@@ -146,6 +160,14 @@ body {
   position: absolute;
   height: 50px;
   width: 50px;
+  outline: 1px solid block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.boss{
+  position: absolute;
+  height: 300px;
+  width: 300px;
   outline: 1px solid block;
   background-size: contain;
   background-repeat: no-repeat;
@@ -200,6 +222,16 @@ border: none;
   top: 50px;
   left: auto;
 
+}
+
+#health {
+  background-image: linear-gradient(to top,#4269f5,#8742f5,#f542b3,#f54242);
+  /* width: 1000px; */
+  height: 50px;
+  position: absolute;
+  top: 50px;
+  left: auto;
+  overflow-x: hidden;
 }
 
 #teleporter {

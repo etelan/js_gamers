@@ -277,7 +277,11 @@ function shoot(e){
     if(e.keyCode == 68){
       bulletSetUp("right")
     }
-  } else if (playerInventory.weaponSelect == 1) {
+  } else if ((playerInventory.weaponSelect == 1) // Weapon Selected
+              && (document.getElementsByClassName("laser").length == 0) // No other lasers
+              && (document.getElementById("weapon1").style.backgroundColor != "rgb(139, 0, 0)")) // Hasn't been fired
+  {
+    console.log(document.getElementById("weapon1").style.backgroundColor)
     if(e.keyCode == 87){
       laserSetup("up")
     }
@@ -315,7 +319,11 @@ function laserSetup(direction){
     case "up":
       document.getElementById(`${laser.id}`).classList.add("rotateUp");
       break;
-  
+
+    case "right":
+      document.getElementById(`${laser.id}`).classList.add("noRotate");
+      break;
+
     default:
       break;
   }
@@ -329,7 +337,8 @@ function laserSetup(direction){
     }
     laser.bulletMove(guyHorizontal, guyVertical);
     checkLaser();
-    bulletHit();
+    laserHit();
+    laserHitBoss();
   }, 35);
 }
 
@@ -345,6 +354,7 @@ function bulletSetUp(direction){
     bullet.bulletMove(guyHorizontal, guyVertical);
     checkBullets();
     bulletHit();
+    bulletHitBoss();
   }, 35);
 }
 

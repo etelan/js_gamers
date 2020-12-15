@@ -84,7 +84,7 @@
     <div id="door2" class="door" style="left:250px; top:150px"></div>
 
     <div id="exit1" class="exit" style="left:550px; top:0px">
-      <form id="nextLevel" action="/">
+      <form id="nextLevel" action="/boss_level_1">
         <img style="height: 50px; width: 550px" id="teleporter" src="../images/teleporter.png" alt="teleporter" />
       </form>
     </div>
@@ -93,8 +93,18 @@
   </div>
 
   <div id="weaponarea">
-    <div class="weaponbox" id="weapon0"></div>
-    <div class="weaponboxSelected" id="weapon1"></div>
+    <div class="weaponboxSelected" id="weapon0">
+      <a href="#" class="imageWeapon">
+          <!--image here-->
+          <img src="../images/guns/pistol.png" height="100%" alt="pistol" border=0 style="border:0; text-decoration:none; outline:none"/>
+      </a>
+    </div>
+    <div class="weaponbox" id="weapon1">
+      <a href="#" class="imageWeapon">
+          <!--image here-->
+          <img src="../images/guns/rifle.png" height="100%" alt="rifle" border=0 style="border:0; text-decoration:none; outline:none;"/>
+      </a>
+    </div>
     <div class="weaponbox" id="weapon2"></div>
   </div>
 
@@ -116,6 +126,7 @@
 <script type="text/javascript" src="src/database.js"></script>
 <script type="text/javascript" src="src/player_movement.js"></script>
 <script type="text/javascript" src="src/enemies.js"></script>
+<script type="text/javascript" src="src/Boss.js"></script>
 <script type="text/javascript" src="src/inventory.js"></script>
 <!-- <script type="text/javascript" src="src/timer.js"></script> -->
 <script>
