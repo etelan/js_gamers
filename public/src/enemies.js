@@ -20,7 +20,8 @@ var level_2_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100),
   new Enemy(400,200),new Enemy(450,200),new Enemy(200,250),new Enemy(250,250),
   new Enemy(300,250),new Enemy(350,250),new Enemy(400,250),new Enemy(450,250)];
 
-var level_3_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100),new Enemy(500,100),new Enemy(100,300)];
+var level_3_enemies = [new Enemy(300,300),new Enemy(200,350),new Enemy(50,150),
+  new Enemy(500,200),new Enemy(50,350),new Enemy(450,350)];
 
 function level1Enemies(){
   for (i = 0; i < level_1_enemies.length; i++) {
