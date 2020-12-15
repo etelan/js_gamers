@@ -60,8 +60,142 @@ function bulletHit(){
         }
       }
     }
+  }
 }
-}
+
+function laserHit(){
+  // Get enemies
+  var enemies = document.getElementsByClassName('enemy')
+  var lasers = document.getElementsByClassName('laser')
+  
+  
+  let laser = lasers[0]
+  var direction = ""
+  var horLen = 50
+  var verLen = 50
+  var lowHor = 0
+  var highHor = 0
+  var lowVert = 0
+  var highVert = 0
+  var inZone = false
+
+  console.log(document.getElementById(`${laser.id}`).classList)
+
+  if (document.getElementById(`${laser.id}`).classList[1] == "rotateDown") {
+    direction = "down";
+    horLen = 50;
+    verLen = 400;
+
+    // Low Bound Hor
+    lowVert = document.getElementById(`${laser.id}`).style.top.slice(0, -2);
+    lowVert = parseInt(lowVert);
+
+    // High Bound Ver
+    highVert = lowVert + verLen
+    
+
+    // Low Bound Hor
+    lowHor = document.getElementById(`${laser.id}`).style.left.slice(0, -2);
+    lowHor = parseInt(lowHor);
+
+    // Upper Bound Hor
+    highHor = lowHor
+
+  } else if (document.getElementById(`${laser.id}`).classList[1] == "rotateUp") {
+
+    direction = "up";
+    horLen = 50;
+    verLen = -400;
+
+    // Low Bound Hor
+    highVert = document.getElementById(`${laser.id}`).style.top.slice(0, -2);
+    highVert = parseInt(highVert);
+
+    // High Bound Ver
+    lowVert = highVert + verLen
+
+    // Low Bound Hor
+    lowHor = document.getElementById(`${laser.id}`).style.left.slice(0, -2);
+    lowHor = parseInt(lowHor);
+
+    // Upper Bound Hor
+    highHor = lowHor
+
+
+  } else if (document.getElementById(`${laser.id}`).classList[1] == "rotateBack") {
+    direction = "left";
+    horLen = -600 ;
+    verLen = 50;
+
+    // Low Bound Hor
+    highHor = document.getElementById(`${laser.id}`).style.left.slice(0, -2);
+    highHor = parseInt(highHor);
+
+    // High Bound Ver
+    lowHor = highHor + horLen
+    
+
+    // Low Bound Ver
+    lowVert = document.getElementById(`${laser.id}`).style.top.slice(0, -2);
+    lowVert = parseInt(lowVert);
+
+    // Upper Bound Ver
+    highVert = lowVert
+
+  } else if (document.getElementById(`${laser.id}`).classList[1] == "noRotate") {
+    direction = "right";
+    horLen = 600 ;
+    verLen = 50;
+
+    // Low Bound Hor
+    lowHor = document.getElementById(`${laser.id}`).style.left.slice(0, -2);
+    lowHor = parseInt(lowHor);
+
+    // High Bound Ver
+    highHor = lowHor + horLen
+
+    // Low Bound Ver
+    lowVert = document.getElementById(`${laser.id}`).style.top.slice(0, -2);
+    lowVert = parseInt(lowVert);
+
+    // Upper Bound Ver
+    highVert = lowVert
+
+  }
+
+  // For i in enemies
+  for (i = 0; i < enemies.length; i++) {
+
+    // Get Coords
+    let hor = enemies[i].style.left.slice(0, -2);
+    x = parseInt(hor);
+    let ver = enemies[i].style.top.slice(0, -2);
+    y = parseInt(ver);
+
+
+    if ((x >= lowHor) && (x <= highHor)) {
+      console.log("Within X.")
+
+      console.log("LOW V: " + String(lowVert))
+      console.log("HIGH V: " + String(highVert))
+      console.log(y)
+      if ((y >= lowVert) && (y <= highVert)) {
+        console.log("Within Y.")
+
+        // Do our enemy shizzle
+        enemies[i].remove();
+        score += 20
+        document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score); 
+
+      }
+    }
+
+    
+
+
+    }      
+  }
+
 
 
 var enemyInterval = setInterval(enemyMove, 1000);
@@ -103,6 +237,8 @@ function randomMovement(beings){
     }
   }
 }
+
+
 
 function enemyMove() {
   let enemies=document.getElementsByClassName('enemy');
