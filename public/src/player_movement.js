@@ -319,7 +319,7 @@ function laserSetup(direction){
     case "right":
       document.getElementById(`${laser.id}`).classList.add("noRotate");
       break;
-  
+
     default:
       break;
   }
@@ -334,6 +334,7 @@ function laserSetup(direction){
     laser.bulletMove(guyHorizontal, guyVertical);
     checkLaser();
     laserHit();
+    laserHitBoss();
   }, 35);
 }
 
@@ -349,6 +350,7 @@ function bulletSetUp(direction){
     bullet.bulletMove(guyHorizontal, guyVertical);
     checkBullets();
     bulletHit();
+    bulletHitBoss();
   }, 35);
 }
 

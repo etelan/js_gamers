@@ -154,6 +154,14 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
 }
+.boss{
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  outline: 1px solid block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
 .exit{
   position: absolute;
@@ -204,6 +212,16 @@ border: none;
   top: 50px;
   left: auto;
 
+}
+
+#health {
+  background-image: linear-gradient(to top,#4269f5,#8742f5,#f542b3,#f54242);
+  /* width: 1000px; */
+  height: 50px;
+  position: absolute;
+  top: 50px;
+  left: auto;
+  overflow-x: hidden;
 }
 
 #teleporter {
