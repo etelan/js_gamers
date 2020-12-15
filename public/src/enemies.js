@@ -8,7 +8,7 @@ class Enemy {
     enemy.className = 'enemy';
     enemy.style.left = this.x + "px";
     enemy.style.top = this.y + "px";
-    enemy.style.backgroundImage = "url('../images/enemy4.gif')";
+    enemy.style.backgroundImage = "url('../images/enemy9.gif')";
     document.getElementById("container").appendChild(enemy);
   }
 }
@@ -56,6 +56,8 @@ var level_4_enemies = [
   new Enemy(450,150),
   new Enemy(450,200),]
 
+var level_5_enemies = [new Enemy(300,300),new Enemy(200,150),new Enemy(100,0),new Enemy(50,100),new Enemy(100,400)];
+
 function level1Enemies(){
   for (i = 0; i < level_1_enemies.length; i++) {
     level_1_enemies[i].createEnemy()
@@ -74,9 +76,16 @@ function level3Enemies(){
   }
 }
 
+
 function level4Enemies(){
   for (i = 0; i < level_4_enemies.length; i++) {
     level_4_enemies[i].createEnemy()
+  }
+}
+
+function level5Enemies(){
+  for (i = 0; i < level_5_enemies.length; i++) {
+    level_5_enemies[i].createEnemy()
   }
 }
 

@@ -29,14 +29,24 @@ var level_4_doors = [
   // Room 4
   new Door(500,250)];
 
+var level_5_doors = [new Door(550,0),new Door(0,300),new Door(250,350)];
+
 function level2doors(){
   for (i = 0; i < level_2_doors.length; i++) {
     level_2_doors[i].createDoor()
   }
 }
 
+
 function level4doors(){
   for (i = 0; i < level_4_doors.length; i++) {
     level_4_doors[i].createDoor()
+
+  }
+}
+
+function level5Doors(){
+  for (i = 0; i < level_5_doors.length; i++) {
+    level_5_doors[i].createDoor()
   }
 }
