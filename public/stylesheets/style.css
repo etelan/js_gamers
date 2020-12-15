@@ -81,6 +81,10 @@ body {
   transform-origin: 25px 25px;
 }
 
+.noRotate {
+  transform: rotate(0deg); /* Equal to rotateZ(45deg) */
+}
+
 .rotateDown {
   transform: rotate(90deg); /* Equal to rotateZ(45deg) */
 }

@@ -312,6 +312,10 @@ function laserSetup(direction){
     case "up":
       document.getElementById(`${laser.id}`).classList.add("rotateUp");
       break;
+
+    case "right":
+      document.getElementById(`${laser.id}`).classList.add("noRotate");
+      break;
   
     default:
       break;
