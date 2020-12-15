@@ -3,6 +3,7 @@
 var guyHorizontal = 0;
 var guyVertical = 0;
 var hearts = 0;
+var score = 0;
 
 
 
@@ -16,13 +17,11 @@ function anim(e){
     keyCheck();
     shoot(e);
     causeDamage();
-    playerInventory.checkLife();
     playerInventory.selectWeapon(e.keyCode)
 
     _itemUsable()
 
     // trumpNoise(e);
-    // console.log(e.keyCode)
 
     useItem(e, "door")
     useExit(e, "exit")
@@ -55,7 +54,6 @@ function useItem(e, item){
         deleteNearBy(array)
         playerInventory.keyInventory.pop();
         playerInventory.updateDisplay();
-        console.log("yoo")
       }
     }
   }
@@ -95,6 +93,9 @@ function heartCheck() {
   if (hearts !== undefined) {
     deleteItem(hearts);
     playerInventory.addItem("heart")
+    score += 5
+    document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
+    console.log(score)
   }
 }
 
@@ -258,18 +259,78 @@ function getGuy(){
 }
 
 function shoot(e){
-  if(e.keyCode == 87){
-    bulletSetUp("up")
+
+  if (playerInventory.weaponSelect == 0) {
+
+    if(e.keyCode == 87){
+      bulletSetUp("up")
+    }
+
+    if(e.keyCode == 65){
+      bulletSetUp("left")
+    }
+
+    if(e.keyCode == 83){
+      bulletSetUp("down")
+    }
+
+    if(e.keyCode == 68){
+      bulletSetUp("right")
+    }
+  } else if (playerInventory.weaponSelect == 1) {
+    if(e.keyCode == 87){
+      laserSetup("up")
+    }
+
+    if(e.keyCode == 65){
+      laserSetup("left")
+    }
+
+    if(e.keyCode == 83){
+      laserSetup("down")
+    }
+
+    if(e.keyCode == 68){
+      laserSetup("right")
+    }
   }
-  if(e.keyCode == 65){
-    bulletSetUp("left")
+
+}
+
+function laserSetup(direction){
+
+  let laser = new Laser(direction);
+
+  laser.createLaser(guyHorizontal, guyVertical);
+
+  switch (direction) {
+    case "down":
+      document.getElementById(`${laser.id}`).classList.add("rotateDown");
+      break;
+
+    case "left":
+      document.getElementById(`${laser.id}`).classList.add("rotateBack");
+      break;
+
+    case "up":
+      document.getElementById(`${laser.id}`).classList.add("rotateUp");
+      break;
+  
+    default:
+      break;
   }
-  if(e.keyCode == 83){
-    bulletSetUp("down")
-  }
-  if(e.keyCode == 68){
-    bulletSetUp("right")
-  }
+
+  // Laser
+  document.getElementById(`${laser.id}`).style.backgroundImage="url('../images/beams/blue_beam.png')";
+  var continuous = setInterval(function(){
+    var check = document.getElementById(`${laser.id}`);
+    if (check == null) {
+      clearInterval(continuous)
+    }
+    laser.bulletMove(guyHorizontal, guyVertical);
+    checkLaser();
+    bulletHit();
+  }, 35);
 }
 
 function bulletSetUp(direction){

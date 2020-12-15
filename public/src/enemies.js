@@ -34,15 +34,17 @@ function level2Enemies(){
 
 function bulletHit(){
   var enemies = document.getElementsByClassName('enemy')
-  for (i = 0; i < enemies.length; i++) { 
-    let hor = enemies[i].style.left.slice(0, -2); 
-    x = parseInt(hor); 
-    let ver = enemies[i].style.top.slice(0, -2); 
+  for (i = 0; i < enemies.length; i++) {
+    let hor = enemies[i].style.left.slice(0, -2);
+    x = parseInt(hor);
+    let ver = enemies[i].style.top.slice(0, -2);
     y = parseInt(ver);
     for (a = 0; a < 50; a++){
       for (b = 0; b < 50; b++){
         if(!checkFree(x + a , y + b,getItem('bullet'))){
           enemies[i].remove();
+          score += 20
+          document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
           var bullets = getItem('bullet');
           for (c = 0; c < bullets.length; c++){
             bullets[c].remove();
@@ -111,6 +113,9 @@ function causeDamage(){
       playerInventory.heartInventory.pop();
       playerInventory.updateDisplay()
       playAudio("grunt")
+      score -= 5
+      document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
+      playerInventory.checkLife();
     }
   }
 }
