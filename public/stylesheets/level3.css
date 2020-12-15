@@ -25,7 +25,7 @@ body {
   background-size: contain;
   position: absolute;
   top: 90%;
-  left: 57%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
@@ -36,9 +36,15 @@ body {
   outline: 1px solid black;
   background-color: gray ;
   background-size: contain;
-
-  transform: translate(-50%, -50%);
 }
+
+.imageWeapon {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  outline: 0;
+}
+
 .weaponboxSelected{
   float:left;
   height: 100px;
@@ -47,7 +53,7 @@ body {
   background-color: gray ;
   background-size: contain;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-20%, -20%);
 }
 
 #guy{
@@ -75,10 +81,14 @@ body {
   height: 50px;
   width: 600px;
   opacity:0.4;
-  outline: 1px solid block;
+  outline: 1px solid red;
   background-color: red;
   left: 0px;
   transform-origin: 25px 25px;
+}
+
+.noRotate {
+  transform: rotate(0deg); /* Equal to rotateZ(45deg) */
 }
 
 .rotateDown {
@@ -109,7 +119,7 @@ body {
   width: 50px;
   outline: 1px solid block;
   /* background-color: black; */
-  background-image: url("../images/heart6.gif");
+  background-image: url("../images/heart1.gif");
   background-size: contain;
   background-repeat: no-repeat;
   left: 300px;
@@ -147,7 +157,7 @@ body {
   height: 50px;
   width: 50px;
   outline: 1px solid block;
-  background-image: url('../images/enemy9.gif');
+  background-image: url('../images/enemy2.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -157,10 +167,6 @@ body {
   height: 50px;
   width: 50px;
   outline: 1px solid block;
-  /* background-color: black; */
-  /* background-image: url('../images/door.png');
-  background-size: contain;
-  background-repeat: no-repeat; */
   left: 550px;
   top: 0px;
   overflow: hidden;
@@ -201,6 +207,16 @@ border: none;
   top: 50px;
   left: auto;
 
+}
+
+#health {
+  background-image: linear-gradient(to top,#4269f5,#8742f5,#f542b3,#f54242);
+  /* width: 1000px; */
+  height: 50px;
+  position: absolute;
+  top: 50px;
+  left: auto;
+  overflow-x: hidden;
 }
 
 #teleporter {
