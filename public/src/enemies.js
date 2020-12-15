@@ -15,8 +15,21 @@ class Enemy {
 
 var level_1_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100)];
 
-for (i = 0; i < level_1_enemies.length; i++) {
-  level_1_enemies[i].createEnemy()
+var level_2_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100),
+  new Enemy(200,200),new Enemy(250,200),new Enemy(300,200),new Enemy(350,200),
+  new Enemy(400,200),new Enemy(450,200),new Enemy(200,250),new Enemy(250,250),
+  new Enemy(300,250),new Enemy(350,250),new Enemy(400,250),new Enemy(450,250)];
+
+function level1Enemies(){
+  for (i = 0; i < level_1_enemies.length; i++) {
+    level_1_enemies[i].createEnemy()
+  }
+}
+
+function level2Enemies(){
+  for (i = 0; i < level_2_enemies.length; i++) {
+    level_2_enemies[i].createEnemy()
+  }
 }
 
 function bulletHit(){

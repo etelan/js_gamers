@@ -51,7 +51,7 @@ function useItem(e, item){
     if (searchItem(item)) {
       if (playerInventory.keyInventory.length > 0) {
         var array = getItem(item)
-        deleteItem(array)
+        deleteNearBy(array)
         playerInventory.keyInventory.pop();
         playerInventory.updateDisplay();
       }
@@ -79,7 +79,7 @@ function searchItem(item) {
 function useExit(e, item){
   if (e.keyCode == 69) {
     if (searchItem(item)) {
-      window.location.replace("/");
+      document.getElementById("nextLevel").submit();
     }
   }
 }
@@ -91,7 +91,7 @@ function heartCheck() {
 
   // If we meet a heart, delete it and then add heart to inventory.
   if (hearts !== undefined) {
-    deleteHeart(hearts);
+    deleteItem(hearts);
     playerInventory.addItem("heart")
     score += 5
     document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
@@ -111,23 +111,26 @@ function keyCheck() {
   }
 }
 
-function deleteItem(items) {
-  console.log(items)
+function deleteNearBy(items) {
   // Find specific heart and delete it
   for (i = 0; i < items.length; i++) {
-
     string1 = items[i].style.left.slice(0, -2)
     x = parseInt(string1)
 
     string2 = items[i].style.top.slice(0, -2)
     y = parseInt(string2)
-    // if ((playerHorizontal == x) && (playerVertical == y)){
-      removeElement(items[i].id)
-    // }
+    for (a = -50; a < 51; a = a + 50) {
+
+      for (b = -50; b < 51; b = b + 50) {
+        if ((guyHorizontal == (x + a)) && (guyVertical == (y + b))){
+          removeElement(items[i].id)
+        }
+      }
+    }
   }
 }
 
-function deleteHeart(items) {
+function deleteItem(items) {
   // Find specific heart and delete it
   for (i = 0; i < items.length; i++) {
 
