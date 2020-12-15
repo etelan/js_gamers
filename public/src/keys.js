@@ -20,6 +20,17 @@ class Key {
 
 var level_2_keys = [new Key(0,350),new Key(300,100) ,new Key(550,100)];
 
-for (i = 0; i < level_2_keys.length; i++) {
-  level_2_keys[i].createKey()
+function level2keys(){
+  for (i = 0; i < level_2_keys.length; i++) {
+    level_2_keys[i].createKey()
+  }
+}
+
+
+var level_5_keys = [new Key(150,200),new Key(300,100) ,new Key(550,100)];
+
+ function level5Keys() {
+  for (i = 0; i < level_5_keys.length; i++) {
+    level_5_keys[i].createKey()
+  }
 }
