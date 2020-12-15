@@ -13,7 +13,10 @@ var StartController = {
   },
   Level2: function(req, res) {
     res.render('start/level2'), {title: 'Moving game'};
-  }
+  },
+  Level3: function(req, res) {
+   res.render('start/level3'),  {title: 'Moving game'};
+ }
 
 };
 
