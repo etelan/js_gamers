@@ -29,6 +29,7 @@
    height: 50px;
    width: 50px;
    outline: 1px solid block;
+   background-image: url('../images/enemy5.gif');
    background-size: contain;
    background-repeat: no-repeat;
    z-index: -10
