@@ -185,6 +185,7 @@ body {
   outline: 1px solid block;
   background-size: contain;
   background-repeat: no-repeat;
+  background-image: url('../images/enemy9.gif')
 }
 
 .exit{
