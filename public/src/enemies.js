@@ -8,7 +8,7 @@ class Enemy {
     enemy.className = 'enemy';
     enemy.style.left = this.x + "px";
     enemy.style.top = this.y + "px";
-    enemy.style.backgroundImage = "url('../images/enemy9.gif')";
+    // enemy.style.backgroundImage = "url('../images/enemy9.gif')";
     document.getElementById("container").appendChild(enemy);
   }
 }
@@ -20,7 +20,7 @@ var level_2_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100),
   new Enemy(400,200),new Enemy(450,200),new Enemy(200,250),new Enemy(250,250),
   new Enemy(300,250),new Enemy(350,250),new Enemy(400,250),new Enemy(450,250)];
 
-var level_3_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100),new Enemy(500,100),new Enemy(100,300)];
+var level_3_enemies = [new Enemy(300,300),new Enemy(500,350),new Enemy(150,100),new Enemy(500,200),new Enemy(100,350)];
 
 var level_4_enemies = [
   // Room 1
@@ -28,13 +28,13 @@ var level_4_enemies = [
   new Enemy(50,300),
   new Enemy(0,250),
   new Enemy(50,250),
-  
+
   // Room 2
   new Enemy(200,50),
   new Enemy(200,100),
   new Enemy(200,150),
   new Enemy(200,200),
-  
+
   new Enemy(150,50),
   new Enemy(150,100),
   new Enemy(150,150),
@@ -50,7 +50,7 @@ var level_4_enemies = [
   new Enemy(500,100),
   new Enemy(500,150),
   new Enemy(500,200),
-  
+
   new Enemy(450,50),
   new Enemy(450,100),
   new Enemy(450,150),
@@ -116,8 +116,8 @@ function laserHit(){
   // Get enemies
   var enemies = document.getElementsByClassName('enemy')
   var lasers = document.getElementsByClassName('laser')
-  
-  
+
+
   let laser = lasers[0]
   var direction = ""
   var horLen = 50
@@ -139,7 +139,7 @@ function laserHit(){
 
     // High Bound Ver
     highVert = lowVert + verLen
-    
+
 
     // Low Bound Hor
     lowHor = document.getElementById(`${laser.id}`).style.left.slice(0, -2);
@@ -180,7 +180,7 @@ function laserHit(){
 
     // High Bound Ver
     lowHor = highHor + horLen
-    
+
 
     // Low Bound Ver
     lowVert = document.getElementById(`${laser.id}`).style.top.slice(0, -2);
@@ -227,15 +227,15 @@ function laserHit(){
         // Do our enemy shizzle
         enemies[i].remove();
         score += 20
-        document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score); 
+        document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
 
       }
     }
 
-    
 
 
-    }      
+
+    }
   }
 
 
