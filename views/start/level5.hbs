@@ -19,9 +19,9 @@
     <audio id="death">
       <source src="https://opengameart.org/sites/default/files/1_8.mp3" type="audio/mp3">
     </audio>
-    <!-- <audio id="backing_track">
+    <audio id="backing_track">
       <source src="https://opengameart.org/sites/default/files/Irrational%20Machines%20-%20RPG%20Title%20Screen%20Music%20Pack%20-%2001%20Title%20Screen.wav" type="audio/wav">
-    </audio> -->
+    </audio>
 
     <div id="guy">
 
@@ -30,7 +30,7 @@
     </div>
 
     <div id="exit1" class="exit" style="left:550px; top:350px">
-      <form id="nextLevel" action="/">
+      <form id="nextLevel" action="/boss_level_1">
         <img style="height: 50px; width: 550px" id="teleporter" src="../images/teleporter.png" alt="teleporter" />
       </form>
     </div>
@@ -40,10 +40,21 @@
   </div>
 
   <div id="weaponarea">
-    <div class="weaponbox" id="weapon0"></div>
-    <div class="weaponboxSelected" id="weapon1"></div>
+    <div class="weaponboxSelected" id="weapon0">
+      <a href="#" class="imageWeapon">
+      <!--image here-->
+      <img src="../images/guns/pistol.png" height="100%" alt="pistol" border=0 style="border:0; text-decoration:none; outline:none"/>
+      </a>
+    </div>
+    <div class="weaponbox" id="weapon1">
+      <a href="#" class="imageWeapon">
+      <!--image here-->
+      <img src="../images/guns/rifle.png" height="100%" alt="rifle" border=0 style="border:0; text-decoration:none; outline:none;"/>
+      </a>
+    </div>
     <div class="weaponbox" id="weapon2"></div>
   </div>
+
 
   <div>
     <h1 id="heartDisplay">3 hearts</h1>
@@ -61,7 +72,7 @@
 <script type="text/javascript" src="src/player_movement.js"></script>
 <script type="text/javascript" src="src/enemies.js"></script>
 <script type="text/javascript" src="src/inventory.js"></script>
-<!-- <script type="text/javascript" src="src/timer.js"></script> -->
+<script type="text/javascript" src="src/timer.js"></script>
 <script type="text/javascript" src="src/walls.js"></script>
 <script type="text/javascript" src="src/hearts.js"></script>
 <script type="text/javascript" src="src/keys.js"></script>
