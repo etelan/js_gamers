@@ -112,6 +112,7 @@ function bulletHit(){
 
       enemies[i].remove();
       score += 20
+      sessionStorage.setItem("Score",score);
       document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
       var bullets = getItem('bullet');
       for (c = 0; c < bullets.length; c++){
@@ -236,6 +237,7 @@ function laserHit(){
         // Do our enemy shizzle
         enemies[i].remove();
         score += 20
+        sessionStorage.setItem("Score",score);
         document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
 
       }
@@ -306,9 +308,11 @@ function causeDamage(){
     y = parseInt(ver);
     if (!checkFree(x, y, getGuy())) {
       playerInventory.heartInventory.pop();
+      sessionStorage.setItem("Hearts",playerInventory.heartInventory.length);
       playerInventory.updateDisplay()
       playAudio("grunt")
       score -= 5
+      sessionStorage.setItem("Score",score);
       document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
       playerInventory.checkLife();
     }
