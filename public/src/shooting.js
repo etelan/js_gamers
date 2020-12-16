@@ -31,18 +31,22 @@ class Bullet {
     if (this.direction == "left"){
       this.bulletHorizontal -= 25;
       bullet.style.left = x + this.bulletHorizontal + 'px';
+      playAudio("gunShot");
     }
     if (this.direction == "right"){
       this.bulletHorizontal += 25;
       bullet.style.left = x + this.bulletHorizontal + 'px';
+      playAudio("gunShot");
     }
     if (this.direction == "up"){
       this.bulletVertical -= 25;
       bullet.style.top = y + this.bulletVertical + 'px';
+      playAudio("gunShot");
     }
     if (this.direction == "down"){
       this.bulletVertical += 25;
       bullet.style.top = y + this.bulletVertical + 'px';
+      playAudio("gunShot");
     }
   }
 }
