@@ -258,28 +258,28 @@ function randomMovement(beings){
     y = parseInt(ver);
     let direction = Math.floor(Math.random() * 4);
     if (direction == 0 ){
-      if (checkFree(x + 50, y, getItem('box'))){
+      if ((checkFree(x + 50, y, getItem('box')) && checkFree(x + 50, y, getItem('door')))){
         if ( (x != 550)&&(50 > 0) ) {
           beings[i].style.left = (x + 50) + 'px';
         }
       }
     }
     else if(direction == 1 )  {
-      if (checkFree(x - 50, y, getItem('box'))){
+      if ((checkFree(x - 50, y, getItem('box')) && checkFree(x - 50, y, getItem('door')))){
         if ( (x != 0)&&(-50 < 0) ) {
           beings[i].style.left = (x - 50) + 'px';
         }
       }
     }
     else if(direction == 2 )  {
-      if (checkFree(x, y - 50, getItem('box'))){
+      if ((checkFree(x, y - 50, getItem('box')) && checkFree(x, y - 50, getItem('door')))){
         if ( (y != 0)&&(-50 < 0) ) {
           beings[i].style.top = (y - 50) + 'px';
         }
       }
     }
     else {
-      if (checkFree(x, y + 50, getItem('box'))){
+      if ((checkFree(x, y + 50, getItem('box')) && checkFree(x, y + 50, getItem('door')))){
         if ( (y != 350)&&(50 > 0) ) {
           beings[i].style.top = (y + 50) + 'px';
         }
