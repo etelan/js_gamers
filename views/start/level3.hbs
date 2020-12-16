@@ -136,12 +136,17 @@
 <script type="text/javascript" src="src/database.js"></script>
 <script type="text/javascript" src="src/player_movement.js"></script>
 <script type="text/javascript" src="src/enemies.js"></script>
+<script type="text/javascript" src="src/Boss.js"></script>
 <script type="text/javascript" src="src/inventory.js"></script>
-<!-- <script type="text/javascript" src="src/timer.js"></script> -->
+<script type="text/javascript" src="src/timer.js"></script>
 <script>
 level3Enemies();
   // Inventory
-  var playerInventory = new Inventory();
+  var carry_hearts = sessionStorage.getItem("Hearts")
+  var hearts = Array(parseInt(carry_hearts)).fill("hearts")
+  var playerInventory = new Inventory(hearts);
+  playerInventory.updateDisplay();
+  document.getElementById("scoreDisplay").innerHTML = "Score: " + String(parseInt(sessionStorage.getItem("Score")));
   document.onkeydown = anim
 </script>
 </html>

@@ -3,7 +3,7 @@
 var guyHorizontal = 0;
 var guyVertical = 0;
 var hearts = 0;
-var score = 0;
+var score = parseInt(sessionStorage.getItem("Score"));
 
 
 
@@ -94,8 +94,8 @@ function heartCheck() {
     deleteItem(hearts);
     playerInventory.addItem("heart")
     score += 5
+    sessionStorage.setItem("Score",score);
     document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
-    console.log(score)
   }
 }
 
