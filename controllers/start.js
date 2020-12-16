@@ -1,3 +1,4 @@
+
 var StartController = {
   Index: function(req, res) {
     res.render('start/index'), {title: 'Moving game'};
