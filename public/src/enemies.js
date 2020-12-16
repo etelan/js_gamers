@@ -20,7 +20,8 @@ var level_2_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100),
   new Enemy(400,200),new Enemy(450,200),new Enemy(200,250),new Enemy(250,250),
   new Enemy(300,250),new Enemy(350,250),new Enemy(400,250),new Enemy(450,250)];
 
-var level_3_enemies = [new Enemy(300,300),new Enemy(500,350),new Enemy(150,100),new Enemy(500,200),new Enemy(100,350)];
+var level_3_enemies = [new Enemy(300,300),new Enemy(500,350),new Enemy(150,100),new Enemy(0,100),
+  new Enemy(500,200),new Enemy(100,350),new Enemy(200,300),new Enemy(400,300)];
 
 var level_4_enemies = [
   // Room 1
