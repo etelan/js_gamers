@@ -41,15 +41,22 @@ function bulletHitBoss(){
     x = parseInt(hor);
     let ver = boss[i].style.top.slice(0, -2);
     y = parseInt(ver);
-    for (a = 0; a < 300; a++){
-      for (b = 0; b < 300; b++){
-        if(!checkFree(x + a , y + b,getItem('bullet'))){
+
+    let horizontalArray = [0, 50, 100, 150, 200, 250]
+    let verticleArray = [0, 50, 100, 150, 200, 250]
+
+    horizontalArray.forEach(function (xCheck, index) {
+      verticleArray.forEach(function (yCheck, index) {
+
+        // Precisely on boss.
+        if(!checkFree(x + xCheck, y + yCheck,getItem('bullet'))){
           damage += 10;
           health.style.width = 1000 - damage + "px";
           if (health.style.width == 0 + "px"){
             boss[i].remove();
+            score += 400
           }
-          score += 20
+          score += 1
           sessionStorage.setItem("Score",score);
           document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
           var bullets = getItem('bullet');
@@ -57,8 +64,12 @@ function bulletHitBoss(){
             bullets[c].remove();
           }
         }
-      }
-    }
+
+      })
+    })
+    
+    
+
   }
 }
 
