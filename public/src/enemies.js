@@ -111,6 +111,7 @@ function bulletHit(){
 
 
       enemies[i].remove();
+      playAudio("enemyDeath");
       score += 20
       sessionStorage.setItem("Score",score);
       document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);

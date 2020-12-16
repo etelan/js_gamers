@@ -8,8 +8,11 @@
 
   </head>
   <body>
+
     <div><span id="timer"></span></div>
+
     <div id="container">
+
       <audio id="life_sound">
         <source src="https://opengameart.org/sites/default/files/life_pickup_0.mp3" type="audio/mp3">
       </audio>
@@ -22,50 +25,60 @@
       <audio id="death">
         <source src="https://opengameart.org/sites/default/files/1_8.mp3" type="audio/mp3">
       </audio>
+      <audio id="enemyDeath">
+        <source src="../audio/enemydeath.wav" type="audio/wav">
+      </audio>
+      <audio id="gunShot">
+        <source src="../audio/gunshot.wav" type="audio/wav">
+      </audio>
+      <audio id="laserShot">
+        <source src="../audio/laser.wav" type="audio/wav">
+      </audio>
       <audio id="backing_track">
         <source src="https://opengameart.org/sites/default/files/Irrational%20Machines%20-%20RPG%20Title%20Screen%20Music%20Pack%20-%2001%20Title%20Screen.wav" type="audio/wav">
       </audio>
+
       <div id="heart1" class="heart" style="left:300px; top:0px"></div>
       <div id="heart2" class="heart" style="left:300px; top:200px"></div>
       <div id="heart3" class="heart" style="left:550px; top:350px"></div>
       <div id="heart4" class="heart" style="left:0px; top:250px"></div>
-      <div id="guy">
 
+      <div id="guy">
         <img style="height: 180px; width: 100px" id="guy_spritesheet" src="../images/sprite5.png" alt="guy" />
         <p id="canUse"></p>
       </div>
 
       <div class="box" style="left:100px; top:0px"></div>
-     <div class="box" style="left:250px; top:0px"></div>
-     <div class="box" style="left:400px; top:0px"></div>
-     <div class="box" style="left:450px; top:0px"></div>
-     <div class="box" style="left:500px; top:0px"></div>
-     <div class="box" style="left:50px; top:50px"></div>
-     <div class="box" style="left:250px; top:50px"></div>
-     <div class="box" style="left:400px; top:50px"></div>
-     <div class="box" style="left:150px; top:100px"></div>
-     <div class="box" style="left:400px; top:100px"></div>
-     <div class="box" style="left:500px; top:100px"></div>
-     <div class="box" style="left:100px; top:150px"></div>
-     <div class="box" style="left:250px; top:150px"></div>
-     <div class="box" style="left:300px; top:150px"></div>
-     <div class="box" style="left:350px; top:150px"></div>
-     <div class="box" style="left:400px; top:150px"></div>
-     <div class="box" style="left:500px; top:150px"></div>
-     <div class="box" style="left:550px; top:150px"></div>
-     <div class="box" style="left:0px; top:200px"></div>
-     <div class="box" style="left:50px; top:200px"></div>
-     <div class="box" style="left:100px; top:200px"></div>
-     <div class="box" style="left:250px; top:200px"></div>
-     <div class="box" style="left:50px; top:250px"></div>
-     <div class="box" style="left:300px; top:250px"></div>
-     <div class="box" style="left:450px; top:250px"></div>
-     <div class="box" style="left:500px; top:250px"></div>
-     <div class="box" style="left:50px; top:300px"></div>
-     <div class="box" style="left:200px; top:300px"></div>
-     <div class="box" style="left:350px; top:300px"></div>
-     <div class="box" style="left:200px; top:350px"></div>
-     <div class="box" style="left:500px; top:350px"></div>
+      <div class="box" style="left:250px; top:0px"></div>
+      <div class="box" style="left:400px; top:0px"></div>
+      <div class="box" style="left:450px; top:0px"></div>
+      <div class="box" style="left:500px; top:0px"></div>
+      <div class="box" style="left:50px; top:50px"></div>
+      <div class="box" style="left:250px; top:50px"></div>
+      <div class="box" style="left:400px; top:50px"></div>
+      <div class="box" style="left:150px; top:100px"></div>
+      <div class="box" style="left:400px; top:100px"></div>
+      <div class="box" style="left:500px; top:100px"></div>
+      <div class="box" style="left:100px; top:150px"></div>
+      <div class="box" style="left:250px; top:150px"></div>
+      <div class="box" style="left:300px; top:150px"></div>
+      <div class="box" style="left:350px; top:150px"></div>
+      <div class="box" style="left:400px; top:150px"></div>
+      <div class="box" style="left:500px; top:150px"></div>
+      <div class="box" style="left:550px; top:150px"></div>
+      <div class="box" style="left:0px; top:200px"></div>
+      <div class="box" style="left:50px; top:200px"></div>
+      <div class="box" style="left:100px; top:200px"></div>
+      <div class="box" style="left:250px; top:200px"></div>
+      <div class="box" style="left:50px; top:250px"></div>
+      <div class="box" style="left:300px; top:250px"></div>
+      <div class="box" style="left:450px; top:250px"></div>
+      <div class="box" style="left:500px; top:250px"></div>
+      <div class="box" style="left:50px; top:300px"></div>
+      <div class="box" style="left:200px; top:300px"></div>
+      <div class="box" style="left:350px; top:300px"></div>
+      <div class="box" style="left:200px; top:350px"></div>
+      <div class="box" style="left:500px; top:350px"></div>
 
 
       <div id="key1" class="key" style="left:350px; top:0px"></div>
