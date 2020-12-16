@@ -58,6 +58,9 @@ var level_4_enemies = [
 
 var level_5_enemies = [new Enemy(300,300),new Enemy(200,150),new Enemy(100,0),new Enemy(50,100),new Enemy(100,400)];
 
+var sm_enemies = [new Enemy(0,150),new Enemy(50,100),new Enemy(100,100),new Enemy(0,300),new Enemy(100,200),
+   new Enemy(550,300),new Enemy(550,350),new Enemy(400,150),new Enemy(400,250),new Enemy(500,300),new Enemy(450,200), new Enemy(450,300)];
+
 function level1Enemies(){
   for (i = 0; i < level_1_enemies.length; i++) {
     level_1_enemies[i].createEnemy()
@@ -89,6 +92,12 @@ function level5Enemies(){
   }
 }
 
+function smEnemies(){
+   for (i = 0; i < sm_enemies.length; i++) {
+     sm_enemies[i].createEnemy()
+   }
+ }
+
 function bulletHit(){
   var enemies = document.getElementsByClassName('enemy')
   for (i = 0; i < enemies.length; i++) {
@@ -98,7 +107,7 @@ function bulletHit(){
     y = parseInt(ver);
 
     if(!checkFree(x , y,getItem('bullet'))){
-    
+
 
       enemies[i].remove();
       score += 20

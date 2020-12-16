@@ -12,7 +12,7 @@ router.get('/level3', StartController.Level3);
 router.get('/level4', StartController.Level4);
 router.get('/level5', StartController.Level5);
 router.get('/boss_level_1', StartController.Boss1);
-
+router.get('/shamarni_lvl', StartController.Shamarni_lvl);
 
 
 
