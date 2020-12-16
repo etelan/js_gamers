@@ -157,7 +157,7 @@ body {
   height: 50px;
   width: 50px;
   outline: 1px solid block;
-  background-image: url('../images/enemy2.png');
+  background-image: url('../images/enemy1.gif');
   background-size: contain;
   background-repeat: no-repeat;
 }
