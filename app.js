@@ -16,18 +16,47 @@ const requester = require('./public/src/read-data');
 
 var app = express();
 
+var data = ""
+
 app.get('/database', (req, res) => {
     // Front End
     client = myModule.clientCreate();
     myModule.clientConnect(client);
 
+ 
     client.query('SELECT * FROM production_leaderboard;', (err, res) => {
         console.log(err, res)
         client.end()
+        data = res;
     })
-    
-    res.send("test")
 
+    dataArray = JSON.parse(JSON.stringify(data))
+    dataArray = dataArray.rows
+
+    var newArray = []
+
+    dataArray.forEach(function (item, index) {
+        console.log(item, index);
+        newArray.push([])
+        newArray[index].push(item.name)
+        newArray[index].push(item.points)
+    });
+
+    //WITH SECOND COLUMN
+    newArray = newArray.sort(function(a,b) {
+        return b[1] - a[1];
+    });
+
+    var htmlArray = []
+    newArray.forEach(function (item, index) {
+        htmlArray.push(`<strong><li style="list-style: none; font-size: 20px; color: rgb(150, 0, 0)">${item[0]}   =   ${item[1]} </li></strong><br>`)
+    })
+
+    var htmlString = htmlArray.join(" ")
+
+    console.log(htmlString)
+    res.send(htmlString)
+    
 });
 
 app.get('/data-test', (req, res) => {

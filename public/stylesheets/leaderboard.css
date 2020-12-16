@@ -16,6 +16,16 @@ body {
   /* background-color: yellow; */
 }
 
+#data {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
 
 #bbtn {
   width: 400px;
