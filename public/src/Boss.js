@@ -182,30 +182,30 @@ function laserHitBoss(){
     let ver = boss[i].style.top.slice(0, -2);
     y = parseInt(ver);
 
+    let horizontalArray = [0, 50, 100, 150, 200, 250]
+    let verticleArray = [0, 50, 100, 150, 200, 250]
 
-    if ((x >= lowHor) && (x <= highHor)) {
-      console.log("Within X.")
+    horizontalArray.forEach(function (xCheck, index) {
+      verticleArray.forEach(function (yCheck, index) {
 
-      console.log("LOW V: " + String(lowVert))
-      console.log("HIGH V: " + String(highVert))
-      console.log(y)
-      if ((y >= lowVert) && (y <= highVert)) {
-        console.log("Within Y.")
-
-        // Do our enemy shizzle
-        boss[i].remove();
-        score += 20
-        sessionStorage.setItem("Score",score);
-        document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
-
-      }
-    }
-
-
-
-
-    }
+        
+        
+        if ((x + xCheck >= lowHor) && (x + xCheck <= highHor)) {
+          if ((y + yCheck >= lowVert) && (y + yCheck <= highVert)) {
+            damage += 3;
+            health.style.width = 1000 - damage + "px";
+            if (health.style.width == 0 + "px"){
+              boss[i].remove();
+              score += 400
+            }
+            sessionStorage.setItem("Score",score);
+            document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
+          }
+        }
+      })
+    })
   }
+}
 
 var enemyInterval = setInterval(bossMove, 500);
 
@@ -262,9 +262,13 @@ function causeDamageBoss(){
     x = parseInt(hor);
     let ver = boss[i].style.top.slice(0, -2);
     y = parseInt(ver);
-    for (a = 0; a < 300; a++){
-      for (b = 0; b < 300; b++){
-        if (!checkFree(x + a, y + b, getGuy())) {
+
+    let horizontalArray = [0, 50, 100, 150, 200, 250]
+    let verticleArray = [0, 50, 100, 150, 200, 250]
+
+    horizontalArray.forEach(function (xCheck, index) {
+      verticleArray.forEach(function (yCheck, index) {        
+        if (!checkFree(x + xCheck, y + yCheck, getGuy())) {
           playerInventory.heartInventory.pop();
           sessionStorage.setItem("Hearts",playerInventory.heartInventory.length);
           playerInventory.updateDisplay()
@@ -274,7 +278,7 @@ function causeDamageBoss(){
           document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
           playerInventory.checkLife();
         }
-      }
-    }
+      })
+    })
   }
 }

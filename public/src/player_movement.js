@@ -213,6 +213,10 @@ function move(e){
     document.getElementById("guy_spritesheet").className = "down";
     movement2(0,50)
   }
+  // Pause
+  if(e.keyCode == 27){
+    alert("Paused. Hit OK to continue!")
+  }
 }
 
 function trumpNoise(e) {
