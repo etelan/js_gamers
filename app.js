@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 var startRouter = require('./routes/start');
 
 const myModule = require('./public/src/module');
-const requester = require('./public/src/read-data');
+var session = require('express-session');
 
 //var playRouter = require('./routes/play');
 
@@ -93,6 +93,7 @@ app.set('view engine', 'hbs'); //use hbs?
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({secret: 'sbcibcidscid',resave:false,saveUninitialized:false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 

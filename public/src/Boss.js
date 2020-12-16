@@ -50,6 +50,7 @@ function bulletHitBoss(){
             boss[i].remove();
           }
           score += 20
+          sessionStorage.setItem("Score",score);
           document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
           var bullets = getItem('bullet');
           for (c = 0; c < bullets.length; c++){
@@ -183,6 +184,7 @@ function laserHitBoss(){
         // Do our enemy shizzle
         boss[i].remove();
         score += 20
+        sessionStorage.setItem("Score",score);
         document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
 
       }
@@ -253,9 +255,11 @@ function causeDamageBoss(){
       for (b = 0; b < 300; b++){
         if (!checkFree(x + a, y + b, getGuy())) {
           playerInventory.heartInventory.pop();
+          sessionStorage.setItem("Hearts",playerInventory.heartInventory.length);
           playerInventory.updateDisplay()
           playAudio("grunt")
           score -= 5
+          sessionStorage.setItem("Score",score);
           document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
           playerInventory.checkLife();
         }

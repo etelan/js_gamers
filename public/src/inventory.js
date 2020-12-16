@@ -1,9 +1,10 @@
 class Inventory {
-    constructor() {
-      this.heartInventory = ["heart","heart","heart"];
+    constructor(hearts) {
+      this.heartInventory = hearts || ["heart", "heart", "heart"];
       this.keyInventory = [];
       this.weaponInventory = ["normal"];
       this.weaponSelect = 0;
+      sessionStorage.setItem("Hearts",this.heartInventory.length);
     }
 
     addItem(element) {
@@ -12,6 +13,7 @@ class Inventory {
         if (element == "heart") {
 
             this.heartInventory.push(element);
+            sessionStorage.setItem("Hearts",this.heartInventory.length);
 
             this.updateDisplay()
 

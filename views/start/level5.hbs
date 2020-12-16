@@ -22,15 +22,23 @@
     <audio id="backing_track">
       <source src="https://opengameart.org/sites/default/files/Irrational%20Machines%20-%20RPG%20Title%20Screen%20Music%20Pack%20-%2001%20Title%20Screen.wav" type="audio/wav">
     </audio>
+    <audio id="enemyDeath">
+      <source src="../audio/enemydeath.wav" type="audio/wav">
+    </audio>
+    <audio id="gunShot">
+      <source src="../audio/gunshot.wav" type="audio/wav">
+    </audio>
+    <audio id="laserShot">
+      <source src="../audio/laser.wav" type="audio/wav">
+    </audio>
 
     <div id="guy">
-
       <img style="height: 180px; width: 100px" id="guy_spritesheet" src="../images/sprite5.png" alt="guy" />
       <p id="canUse"></p>
     </div>
 
     <div id="exit1" class="exit" style="left:550px; top:350px">
-      <form id="nextLevel" action="/boss_level_1">
+      <form id="nextLevel" action="/shamarni_lvl">
         <img style="height: 50px; width: 550px" id="teleporter" src="../images/teleporter.png" alt="teleporter" />
       </form>
     </div>
@@ -57,6 +65,7 @@
 
 
   <div>
+    <h1 id="scoreDisplay">Score: 0</h1>
     <h1 id="heartDisplay">3 hearts</h1>
     <h1 id="keyDisplay">0 keys</h1>
   </div>
@@ -71,6 +80,7 @@
 <script type="text/javascript" src="src/database.js"></script>
 <script type="text/javascript" src="src/player_movement.js"></script>
 <script type="text/javascript" src="src/enemies.js"></script>
+<script type="text/javascript" src="src/Boss.js"></script>
 <script type="text/javascript" src="src/inventory.js"></script>
 <script type="text/javascript" src="src/timer.js"></script>
 <script type="text/javascript" src="src/walls.js"></script>
@@ -88,7 +98,11 @@
 
 
   // Inventory
-  var playerInventory = new Inventory();
+  var carry_hearts = sessionStorage.getItem("Hearts")
+  var hearts = Array(parseInt(carry_hearts)).fill("hearts")
+  var playerInventory = new Inventory(hearts);
+  playerInventory.updateDisplay();
+  document.getElementById("scoreDisplay").innerHTML = "Score: " + String(parseInt(sessionStorage.getItem("Score")));
   document.onkeydown = anim
 
 </script>

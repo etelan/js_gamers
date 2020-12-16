@@ -20,7 +20,8 @@ var level_2_enemies = [new Enemy(300,300),new Enemy(300,350),new Enemy(100,100),
   new Enemy(400,200),new Enemy(450,200),new Enemy(200,250),new Enemy(250,250),
   new Enemy(300,250),new Enemy(350,250),new Enemy(400,250),new Enemy(450,250)];
 
-var level_3_enemies = [new Enemy(300,300),new Enemy(500,350),new Enemy(150,100),new Enemy(500,200),new Enemy(100,350)];
+var level_3_enemies = [new Enemy(300,300),new Enemy(500,350),new Enemy(150,100),new Enemy(0,100),
+  new Enemy(500,200),new Enemy(100,350),new Enemy(200,300),new Enemy(400,300)];
 
 var level_4_enemies = [
   // Room 1
@@ -58,6 +59,9 @@ var level_4_enemies = [
 
 var level_5_enemies = [new Enemy(300,300),new Enemy(200,150),new Enemy(100,0),new Enemy(50,100),new Enemy(100,400)];
 
+var sm_enemies = [new Enemy(0,150),new Enemy(50,100),new Enemy(100,100),new Enemy(0,300),new Enemy(100,200),
+   new Enemy(550,300),new Enemy(550,350),new Enemy(400,150),new Enemy(400,250),new Enemy(500,300),new Enemy(450,200), new Enemy(450,300)];
+
 function level1Enemies(){
   for (i = 0; i < level_1_enemies.length; i++) {
     level_1_enemies[i].createEnemy()
@@ -89,6 +93,12 @@ function level5Enemies(){
   }
 }
 
+function smEnemies(){
+   for (i = 0; i < sm_enemies.length; i++) {
+     sm_enemies[i].createEnemy()
+   }
+ }
+
 function bulletHit(){
   var enemies = document.getElementsByClassName('enemy')
   for (i = 0; i < enemies.length; i++) {
@@ -98,10 +108,12 @@ function bulletHit(){
     y = parseInt(ver);
 
     if(!checkFree(x , y,getItem('bullet'))){
-    
+
 
       enemies[i].remove();
+      playAudio("enemyDeath");
       score += 20
+      sessionStorage.setItem("Score",score);
       document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
       var bullets = getItem('bullet');
       for (c = 0; c < bullets.length; c++){
@@ -226,6 +238,7 @@ function laserHit(){
         // Do our enemy shizzle
         enemies[i].remove();
         score += 20
+        sessionStorage.setItem("Score",score);
         document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
 
       }
@@ -249,28 +262,28 @@ function randomMovement(beings){
     y = parseInt(ver);
     let direction = Math.floor(Math.random() * 4);
     if (direction == 0 ){
-      if (checkFree(x + 50, y, getItem('box'))){
+      if ((checkFree(x + 50, y, getItem('box')) && checkFree(x + 50, y, getItem('door')))){
         if ( (x != 550)&&(50 > 0) ) {
           beings[i].style.left = (x + 50) + 'px';
         }
       }
     }
     else if(direction == 1 )  {
-      if (checkFree(x - 50, y, getItem('box'))){
+      if ((checkFree(x - 50, y, getItem('box')) && checkFree(x - 50, y, getItem('door')))){
         if ( (x != 0)&&(-50 < 0) ) {
           beings[i].style.left = (x - 50) + 'px';
         }
       }
     }
     else if(direction == 2 )  {
-      if (checkFree(x, y - 50, getItem('box'))){
+      if ((checkFree(x, y - 50, getItem('box')) && checkFree(x, y - 50, getItem('door')))){
         if ( (y != 0)&&(-50 < 0) ) {
           beings[i].style.top = (y - 50) + 'px';
         }
       }
     }
     else {
-      if (checkFree(x, y + 50, getItem('box'))){
+      if ((checkFree(x, y + 50, getItem('box')) && checkFree(x, y + 50, getItem('door')))){
         if ( (y != 350)&&(50 > 0) ) {
           beings[i].style.top = (y + 50) + 'px';
         }
@@ -296,9 +309,11 @@ function causeDamage(){
     y = parseInt(ver);
     if (!checkFree(x, y, getGuy())) {
       playerInventory.heartInventory.pop();
+      sessionStorage.setItem("Hearts",playerInventory.heartInventory.length);
       playerInventory.updateDisplay()
       playAudio("grunt")
       score -= 5
+      sessionStorage.setItem("Score",score);
       document.getElementById("scoreDisplay").innerHTML = "Score: " + String(score);
       playerInventory.checkLife();
     }
