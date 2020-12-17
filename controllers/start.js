@@ -25,6 +25,9 @@ var StartController = {
   Level5: function(req, res) {
     res.render('start/level5'),  {title: 'Moving game'};
  },
+ Win: function(req, res) {
+   res.render('start/win_page'),  {title: 'Moving game'};
+},
 
  Shamarni_lvl: function(req, res) {
    res.render('start/shamarni_lvl'),  {title: 'Moving game'};
