@@ -23,7 +23,7 @@ app.get('/database', (req, res) => {
     client = myModule.clientCreate();
     myModule.clientConnect(client);
 
- 
+
     client.query('SELECT * FROM production_leaderboard;', (err, res) => {
         console.log(err, res)
         client.end()
@@ -56,7 +56,7 @@ app.get('/database', (req, res) => {
 
     console.log(htmlString)
     res.send(htmlString)
-    
+
 });
 
 app.get('/data-test', (req, res) => {
@@ -66,7 +66,7 @@ app.get('/data-test', (req, res) => {
 
 
 app.get('/database-send', (req, res) => {
-    
+
     let name = req.query.name;
     let points = req.query.points;
 
@@ -79,8 +79,8 @@ app.get('/database-send', (req, res) => {
         console.log(err, res)
         client.end()
     })
-    
-    res.send("done")
+
+    res.redirect("/leaderboard")
 
 });
 
