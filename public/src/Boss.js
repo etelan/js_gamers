@@ -52,7 +52,8 @@ function bulletHitBoss(){
         if(!checkFree(x + xCheck, y + yCheck,getItem('bullet'))){
           damage += 10;
           health.style.width = 1000 - damage + "px";
-          if (health.style.width == 0 + "px"){
+          if (parseInt(health.style.width.slice(0, -2)) <= 8){
+            health.style.width = "0px"
             boss[i].remove();
             score += 400
           }
@@ -194,7 +195,8 @@ function laserHitBoss(){
           if ((y + yCheck >= lowVert) && (y + yCheck <= highVert)) {
             damage += 3;
             health.style.width = 1000 - damage + "px";
-            if (health.style.width == 0 + "px"){
+            if (parseInt(health.style.width.slice(0, -2)) <= 8){
+              health.style.width = "0px"
               boss[i].remove();
               score += 400
             }
