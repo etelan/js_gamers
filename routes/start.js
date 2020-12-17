@@ -15,7 +15,7 @@ router.get('/boss_level_1', StartController.Boss1);
 router.get('/win_page', StartController.Win);
 router.get('/shamarni_lvl', StartController.Shamarni_lvl);
 router.get('/level', StartController.Level);
-
+router.get('/instructions', StartController.Instructions);
 
 
 

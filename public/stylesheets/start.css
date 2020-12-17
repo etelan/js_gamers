@@ -18,7 +18,7 @@ body {
 #sbtn {
   position: absolute;
   top: 80%;
-  left: 20%;
+  left: 15%;
   width: 100px;
   outline: none;
   background-color: transparent;
@@ -39,6 +39,16 @@ body {
   position: absolute;
   top: 80%;
   left: 38%;
+  width: 220px;
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+
+#ibtn {
+  position: absolute;
+  top: 50px;
+  left: -40px;
   width: 220px;
   outline: none;
   background-color: transparent;

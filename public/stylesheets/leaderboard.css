@@ -16,6 +16,20 @@ body {
   /* background-color: yellow; */
 }
 
+#instructions{
+  height: 600px;
+  width: 800px;
+  outline: 1px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('../images/leaderboardbg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* background-color: yellow; */
+}
+
 #data {
   position: absolute;
   height: 150px;

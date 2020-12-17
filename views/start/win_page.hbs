@@ -13,6 +13,12 @@
       <button id ="sbtnover" type="submit"><img src="../images/startbutton.png"></button>
     </form>
 
+    <form action="/database-send" style="width: 210px; margin: 0 auto">
+      <input type="text" name="name" maxlength="4">
+      <input id="leaderboard_score" type="hidden" name="points" value="0">
+      <button type="submit">Enter</button>
+    </form>
+
   </div>
 
   <div id="scoreDisplay" style="text-align: center; font-size: 50px; padding: 50px"></div>
@@ -23,4 +29,5 @@
 <script type="text/javascript" src="src/player_movement.js"></script>
 <script type="text/javascript">
   document.getElementById("scoreDisplay").innerHTML = "Score: " + String(sessionStorage.getItem("Score"));
+  document.getElementById("leaderboard_score").value = String(sessionStorage.getItem("Score"));
 </script>
