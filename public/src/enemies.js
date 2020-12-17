@@ -62,6 +62,10 @@ var level_5_enemies = [new Enemy(300,300),new Enemy(200,150),new Enemy(100,0),ne
 var sm_enemies = [new Enemy(0,150),new Enemy(50,100),new Enemy(100,100),new Enemy(0,300),new Enemy(100,200),
    new Enemy(550,300),new Enemy(550,350),new Enemy(400,150),new Enemy(400,250),new Enemy(500,300),new Enemy(450,200), new Enemy(450,300)];
 
+var levelenemies = [new Enemy(50,100), new Enemy(50,250), new Enemy(50,150),new Enemy(50,200),
+  new Enemy(100,300), new Enemy(150,300), new Enemy(250,300), new Enemy(350,300), new Enemy(400,300),
+  new Enemy(500,100), new Enemy(500,150), new Enemy(500,250), new Enemy(500,200), new Enemy(400,50), new Enemy(300,50)];
+
 function level1Enemies(){
   for (i = 0; i < level_1_enemies.length; i++) {
     level_1_enemies[i].createEnemy()
@@ -98,6 +102,12 @@ function smEnemies(){
      sm_enemies[i].createEnemy()
    }
  }
+
+function levelEnemies(){
+  for (i = 0; i < levelenemies.length; i++) {
+    levelenemies[i].createEnemy()
+  }
+}
 
 function bulletHit(){
   var enemies = document.getElementsByClassName('enemy')
