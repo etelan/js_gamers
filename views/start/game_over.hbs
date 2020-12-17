@@ -15,16 +15,21 @@
     <div id="gameover_screen">
       <!-- <h1> MOVING GAME </h1> -->
       <img id="gameover" src="../images/game-over.png">
-      <form class="game_over" action="/">
-        <button id ="sbtnover" type="submit"><img src="../images/startbutton.png"></button>
-      </form>
 
+    </div>
+
+    <div>
       <form action="/database-send" style="width: 210px; margin: 0 auto">
-        <input type="text" name="name" maxlength="4">
+        <input type="text" name="name" maxlength="4" required>
         <input id="leaderboard_score" type="hidden" name="points" value="0">
         <button type="submit">Enter</button>
       </form>
+    </div>
 
+    <div>
+      <form class="game_over" action="/">
+        <button id ="sbtnover" type="submit"><img src="../images/startbutton.png"></button>
+      </form>
     </div>
 
     <div id="scoreDisplay" style="text-align: center; font-size: 50px; padding: 50px"></div>
