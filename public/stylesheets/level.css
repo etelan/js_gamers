@@ -1,0 +1,285 @@
+body {
+  background-color: pink;
+}
+
+#container{
+  height: 400px;
+  width: 600px;
+  outline: 1px solid black;
+  background-image: url('../images/grass.png') ;
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  flex-flow: column wrap;
+  overflow: hidden;
+
+}
+#weaponarea{
+  height: 100px;
+  width: 600px;
+  outline: 1px solid black;
+  background-color: black ;
+  background-size: contain;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.weaponbox{
+  float:left;
+  height: 100px;
+  width: 200px;
+  outline: 1px solid black;
+  background-color: gray ;
+  background-size: contain;
+}
+
+.imageWeapon {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  outline: 0;
+}
+
+
+
+.weaponboxSelected{
+  float:left;
+  height: 100px;
+  width: 200px;
+  outline: 2px solid red;
+  background-color: gray ;
+  background-size: contain;
+
+  transform: translate(-20%, -20%);
+}
+
+#guy{
+  position: absolute;
+  height: 50px;
+  width: 30px;
+  outline: 1px solid block;
+  /* background-image: url("../images/trump-down.png") ;
+  background-size: contain;
+  background-repeat: no-repeat; */
+  left: 10px;
+  overflow: hidden;
+}
+.bullet{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid block;
+  /* background-color: blue; */
+  left: 0px;
+}
+
+.laser{
+  position: absolute;
+  height: 50px;
+  width: 600px;
+  opacity:0.4;
+  outline: 1px solid red;
+  background-color: red;
+  left: 0px;
+  transform-origin: 25px 25px;
+}
+
+.noRotate {
+  transform: rotate(0deg); /* Equal to rotateZ(45deg) */
+}
+
+.rotateDown {
+  transform: rotate(90deg); /* Equal to rotateZ(45deg) */
+}
+.rotateUp {
+  transform: rotate(270deg); /* Equal to rotateZ(45deg) */
+}
+.rotateBack {
+  transform: rotate(180deg); /* Equal to rotateZ(45deg) */
+}
+
+.box{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid block;
+  background-image: url("../images/stonewall2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 300px;
+  top: 200px;
+}
+
+.heart{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid block;
+  /* background-color: black; */
+  background-image: url("../images/heart4.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 300px;
+  top: 200px;
+}
+
+
+
+.key{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid block;
+  /* background-color: black; */
+  background-image: url('../images/key.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 300px;
+  top: 200px;
+}
+
+.door{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid block;
+  /* background-color: black; */
+  background-image: url('../images/door.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 300px;
+  top: 200px;
+}
+
+.enemy{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid block;
+  background-image: url('../images/enemy10.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.boss{
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  outline: 1px solid block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.exit{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid block;
+  /* background-color: black; */
+  /* background-image: url('../images/door.png');
+  background-size: contain;
+  background-repeat: no-repeat; */
+  left: 550px;
+  top: 0px;
+  overflow: hidden;
+}
+
+#heartDisplay {
+  position: relative;
+  top: 500px;
+  color: red;
+}
+
+#keyDisplay {
+  position: relative;
+  top: 510px;
+  color: red;
+}
+
+#scoreDisplay {
+  position: relative;
+  top: 500px;
+  color: red;
+}
+
+#bbtn {
+/* position: relative;
+top: 0px; */
+width: 400px;
+outline: none;
+background-color: transparent;
+border: none;
+}
+
+#timer {
+  background-image: linear-gradient(to top,#4269f5,#8742f5,#f542b3,#f54242);
+  /* width: 500px; */
+  height: 50px;
+  position: absolute;
+  top: 50px;
+  left: auto;
+
+}
+
+#health {
+  background-image: linear-gradient(to top,#4269f5,#8742f5,#f542b3,#f54242);
+  /* width: 1000px; */
+  height: 50px;
+  position: absolute;
+  top: 50px;
+  left: auto;
+  overflow-x: hidden;
+}
+
+#teleporter {
+  animation: moveTeleporter 3s steps(11) infinite;
+  position: absolute;
+}
+
+@keyframes moveTeleporter {
+  from {
+    transform: translate3d(3px,0,0)
+  }
+  to {
+    transform: translate3d(-100%,0,0)
+  }
+}
+
+
+:root {
+  --pixel-size: 5;
+}
+
+#guy_spritesheet {
+  animation: moveSpritesheet 0.4s steps(3) infinite;
+  position: absolute;
+}
+
+.face-down {
+  top: calc(-0px * var(--pixel-size));
+}
+
+.face-up {
+  top: calc(-27px * var(--pixel-size));
+}
+
+.face-left {
+  top: calc(-9px * var(--pixel-size));
+}
+
+.face-right {
+  top: calc(-18px * var(--pixel-size));
+}
+
+@keyframes moveSpritesheet {
+  from {
+    transform: translate3d(0px)
+  }
+  to {
+    transform: translate3d(-100%,0,0)
+  }
+}
