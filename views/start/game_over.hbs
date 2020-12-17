@@ -18,7 +18,10 @@
       <form class="game_over" action="/">
         <button id ="sbtnover" type="submit"><img src="../images/startbutton.png"></button>
       </form>
+
     </div>
+
+    <div id="scoreDisplay" style="text-align: center; font-size: 50px; padding: 50px"></div>
 
   </body>
 
@@ -27,4 +30,5 @@
   <script type="text/javascript">
     playAudio("death");
     playAudio("game_over");
+    document.getElementById("scoreDisplay").innerHTML = "Score: " + String(sessionStorage.getItem("Score"));
   </script>
