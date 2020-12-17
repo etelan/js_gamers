@@ -84,6 +84,18 @@ body {
     background-image: url('../images/you_win.png');
     background-size: contain;
   }
+
+  #gameover_screen {
+      height: 400px;
+      width: 600px;
+      outline: 1px solid black;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url('../images/pinksunrise.png');
+      background-size: contain;
+    }
 /* h1 {
   color: yellow;
   position: relative;
